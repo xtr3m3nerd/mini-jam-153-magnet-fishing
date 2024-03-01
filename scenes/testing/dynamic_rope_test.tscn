@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwgc5b0qnknx3"]
+[gd_scene load_steps=4 format=3 uid="uid://cwgc5b0qnknx3"]
 
 [ext_resource type="Script" path="res://scenes/testing/dynamic_rope_test.gd" id="1_sh117"]
 [ext_resource type="PackedScene" uid="uid://cvm0by4xcxjgd" path="res://scenes/prefabs/mobile_rope_base.tscn" id="2_hkj2e"]
+[ext_resource type="PackedScene" uid="uid://b86nc1tyynsk8" path="res://scenes/testing/floating_magnet.tscn" id="3_ckd3v"]
 
 [node name="DynamicRopeTest" type="Node2D"]
 script = ExtResource("1_sh117")
 
 [node name="MobileRopeBase" parent="." instance=ExtResource("2_hkj2e")]
+
+[node name="FloatingMagnet" parent="." instance=ExtResource("3_ckd3v")]
+position = Vector2(0, 8)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Length" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "10"

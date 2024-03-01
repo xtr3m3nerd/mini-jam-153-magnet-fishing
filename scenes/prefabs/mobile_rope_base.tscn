@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvm0by4xcxjgd"]
+[gd_scene load_steps=4 format=3 uid="uid://cvm0by4xcxjgd"]
 
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_c35ud"]
+[ext_resource type="Script" path="res://scenes/prefabs/mobile_rope_base.gd" id="1_hvrtf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rdyq"]
-radius = 8.0
+radius = 7.0
 
 [node name="MobileRopeBase" type="CharacterBody2D"]
+script = ExtResource("1_hvrtf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.125, 0.125)
@@ -14,5 +16,6 @@ texture = ExtResource("1_c35ud")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1rdyq")
 
-[node name="MountPoint" type="Marker2D" parent="."]
+[node name="MountPoint" type="PinJoint2D" parent="."]
 position = Vector2(0, 8)
+node_a = NodePath("..")

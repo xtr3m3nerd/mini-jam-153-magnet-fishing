@@ -8,6 +8,7 @@ custom_solver_bias = 1.0
 radius = 16.0
 
 [node name="Magnet" type="RigidBody2D"]
+position = Vector2(0, 16)
 script = ExtResource("1_1ri4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

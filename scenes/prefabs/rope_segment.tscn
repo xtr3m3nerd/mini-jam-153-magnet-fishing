@@ -5,24 +5,22 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjsaq"]
 radius = 4.0
-height = 16.0
+height = 14.0
 
 [node name="RopeSegment" type="RigidBody2D"]
-position = Vector2(0, 8)
 mass = 0.25
 script = ExtResource("1_3ic11")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2(0, -8)
-node_b = NodePath("..")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0, 1, 0, 1)
+position = Vector2(0, 8)
 scale = Vector2(0.063, 0.125)
 texture = ExtResource("1_vn1d4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_bjsaq")
 
-[node name="MountPoint" type="Marker2D" parent="."]
-position = Vector2(0, 8)
+[node name="MountPoint" type="PinJoint2D" parent="."]
+position = Vector2(0, 16)
+node_a = NodePath("..")
