@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg87jgoat87v"]
+[gd_scene load_steps=6 format=3 uid="uid://cg87jgoat87v"]
 
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_yghds"]
 [ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/testing/object.tscn" id="4_cc2vj"]
-[ext_resource type="PackedScene" uid="uid://bccelwgt6e7dh" path="res://scenes/prefabs/rope.tscn" id="4_lwbcn"]
 [ext_resource type="PackedScene" uid="uid://cwgc5b0qnknx3" path="res://scenes/testing/dynamic_rope_test.tscn" id="5_w4a5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
@@ -33,10 +32,6 @@ layer_0/tile_data = PackedInt32Array(786441, 65536, 0, 786442, 65536, 0, 786443,
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(527, 347)
 zoom = Vector2(2, 2)
-
-[node name="Rope" parent="." instance=ExtResource("4_lwbcn")]
-position = Vector2(551, 203)
-rotation = 0.36675
 
 [node name="DynamicRopeTest" parent="." instance=ExtResource("5_w4a5k")]
 position = Vector2(760, 195)

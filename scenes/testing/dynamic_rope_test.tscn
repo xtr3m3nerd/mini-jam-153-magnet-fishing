@@ -6,6 +6,7 @@
 
 [node name="DynamicRopeTest" type="Node2D"]
 script = ExtResource("1_sh117")
+segment_length = 12.0
 
 [node name="MobileRopeBase" parent="." instance=ExtResource("2_hkj2e")]
 

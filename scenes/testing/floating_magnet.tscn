@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b86nc1tyynsk8"]
+[gd_scene load_steps=5 format=3 uid="uid://b86nc1tyynsk8"]
 
 [ext_resource type="Script" path="res://scenes/testing/floating_magnet.gd" id="1_3byju"]
-[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="2_06y36"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/red_blue_magnet.png" id="2_iex8c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7k1av"]
 radius = 135.05
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcxaa"]
+radius = 16.0
+
 [node name="FloatingMagnet" type="Node2D"]
-position = Vector2(-1, 0)
 script = ExtResource("1_3byju")
 mass = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_06y36")
+position = Vector2(0, 14)
+rotation = 3.14159
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_iex8c")
 
 [node name="MagneticZone" type="Area2D" parent="."]
 collision_layer = 0
@@ -21,3 +25,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MagneticZone"]
 shape = SubResource("CircleShape2D_7k1av")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 23)
+shape = SubResource("CircleShape2D_fcxaa")
