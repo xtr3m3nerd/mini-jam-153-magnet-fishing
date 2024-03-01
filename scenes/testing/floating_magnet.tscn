@@ -7,7 +7,9 @@
 radius = 135.05
 
 [node name="FloatingMagnet" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_3byju")
+mass = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)

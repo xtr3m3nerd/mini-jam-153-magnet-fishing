@@ -5,10 +5,11 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjsaq"]
 radius = 4.0
-height = 14.0
+height = 8.0
 
 [node name="RopeSegment" type="RigidBody2D"]
-mass = 0.25
+mass = 0.1
+gravity_scale = 0.5
 script = ExtResource("1_3ic11")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +25,4 @@ shape = SubResource("CapsuleShape2D_bjsaq")
 [node name="MountPoint" type="PinJoint2D" parent="."]
 position = Vector2(0, 16)
 node_a = NodePath("..")
+softness = 0.5
