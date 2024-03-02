@@ -1,9 +1,9 @@
 extends Node2D
 
+signal purchased_item
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_money_display()
 	pass # Replace with function body.
 
 
@@ -11,16 +11,15 @@ func _ready():
 func _process(delta):
 	pass
 	
-func update_money_display():
-	var format_string = "$%s"
-	$Control/DisplayCurrentMoney.text = format_string % $Player.money
+
 	
 
 func purchase_item(item : Upgrade):
 	if($Player.money >= item.price):
-		$Player.upgrades.add_item(item)
+		$Player.upgrades.append(item)
 		$Player.money -= item.price
-		update_money_display()
+		
+		purchased_item.emit()
 		
 		#TODO: Play purchase sound
 	else:

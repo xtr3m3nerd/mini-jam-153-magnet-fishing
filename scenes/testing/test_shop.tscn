@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=15 format=3 uid="uid://h0e86e3416os"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop.gd" id="1_omqba"]
-[ext_resource type="Script" path="res://scenes/prefabs/player_upgrades.gd" id="2_p0a6l"]
-[ext_resource type="Script" path="res://scenes/prefabs/player_pickups.gd" id="3_gydq4"]
+[ext_resource type="Script" path="res://scenes/prefabs/shop_ui.gd" id="2_t4sl0"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="4_yibra"]
 [ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/length_upgrade_2.tres" id="6_ktn3d"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="6_kw4l7"]
@@ -60,6 +59,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_t4sl0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -110,12 +110,8 @@ text = "$Temp"
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_3gmtx")
 
-[node name="Pickups" type="Node" parent="Player"]
-script = ExtResource("3_gydq4")
-
-[node name="Upgrades" type="Node" parent="Player"]
-script = ExtResource("2_p0a6l")
-
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1073, 563)
 texture = ExtResource("1_6et8l")
+
+[connection signal="purchased_item" from="." to="Control" method="_on_test_shop_purchased_item"]
