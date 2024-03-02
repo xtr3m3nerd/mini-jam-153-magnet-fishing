@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=3 uid="uid://cg87jgoat87v"]
 
-[ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_yghds"]
-[ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/testing/object.tscn" id="4_cc2vj"]
-[ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/depth_follow_camera.tscn" id="4_e8j25"]
-[ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/simple_rope/rope.tscn" id="5_c5kqj"]
+[ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_6o3ml"]
+[ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/prefabs/pickup.tscn" id="2_p57a4"]
+[ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="3_b1a5v"]
+[ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="4_xnrau"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
-texture = ExtResource("1_yghds")
+texture = ExtResource("1_6o3ml")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -22,19 +22,31 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xcba5")
 
-[node name="TestString" type="Node2D"]
+[node name="TestZone" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_u78de")
 format = 2
 layer_0/tile_data = PackedInt32Array(786441, 65536, 0, 786442, 65536, 0, 786443, 65536, 0, 786444, 65536, 0, 786445, 65536, 0, 851982, 65536, 0, 786450, 65536, 0, 786451, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 786454, 65536, 0, 655385, 65536, 0, 655386, 65536, 0, 655387, 65536, 0, 1114132, 65536, 0, 1114133, 65536, 0, 1114134, 65536, 0, 1114135, 65536, 0, 1114136, 65536, 0, 1114137, 65536, 0, 1114138, 65536, 0, 1114139, 65536, 0, 1114140, 65536, 0)
 
-[node name="Object" parent="." instance=ExtResource("4_cc2vj")]
-position = Vector2(755, 512)
+[node name="Pickup" parent="." instance=ExtResource("2_p57a4")]
+position = Vector2(684, 513)
+collision_layer = 2
+collision_mask = 3
 
-[node name="DepthFollowCamera" parent="." instance=ExtResource("4_e8j25")]
+[node name="Pickup2" parent="." instance=ExtResource("2_p57a4")]
+position = Vector2(784, 509)
+collision_layer = 2
+collision_mask = 3
+
+[node name="Pickup3" parent="." instance=ExtResource("2_p57a4")]
+position = Vector2(893, 508)
+collision_layer = 2
+collision_mask = 3
+
+[node name="DepthFollowCamera" parent="." instance=ExtResource("3_b1a5v")]
 position = Vector2(760, 226)
 zoom = Vector2(2, 2)
 
-[node name="Rope" parent="." instance=ExtResource("5_c5kqj")]
-position = Vector2(529, 133)
+[node name="Rope" parent="." instance=ExtResource("4_xnrau")]
+position = Vector2(769, 136)

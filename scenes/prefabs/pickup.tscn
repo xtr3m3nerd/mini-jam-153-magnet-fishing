@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b6tx"]
 size = Vector2(32, 32)
 
-[node name="Object" type="RigidBody2D" groups=["object"]]
+[node name="Pickup" type="RigidBody2D" groups=["pickup"]]
 collision_layer = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
