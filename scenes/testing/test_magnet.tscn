@@ -46,20 +46,30 @@ position = Vector2(705, 510)
 [node name="Object2" parent="." instance=ExtResource("4_r0fmc")]
 position = Vector2(840, 510)
 
-[node name="Node2D" type="CharacterBody2D" parent="."]
+[node name="Magnet" parent="." instance=ExtResource("4_bm0ju")]
+position = Vector2(773, 349)
+collision_layer = 1
+gravity_scale = 0.0
+max_contacts_reported = 100
+contact_monitor = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(773, 349)
 motion_mode = 1
 script = ExtResource("3_p3xqu")
 
-[node name="Magnet" parent="Node2D" instance=ExtResource("4_bm0ju")]
-collision_layer = 1
-gravity_scale = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
 scale = Vector2(1e-05, 1e-05)
 shape = SubResource("CircleShape2D_vyb3d")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CharacterBody2D"]
+node_a = NodePath("../../Magnet")
+node_b = NodePath("..")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("5_l4a3x")
+
+[connection signal="body_entered" from="Magnet" to="Magnet" method="_on_body_entered"]
+[connection signal="body_exited" from="Magnet" to="Magnet" method="_on_body_exited"]
