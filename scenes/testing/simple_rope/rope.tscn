@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2h0nj12p6euo"]
+
+[ext_resource type="PackedScene" uid="uid://b86nc1tyynsk8" path="res://scenes/testing/floating_magnet.tscn" id="1_64nh5"]
+[ext_resource type="Script" path="res://scenes/testing/simple_rope/rope.gd" id="1_7528q"]
+[ext_resource type="Texture2D" uid="uid://ciunk50twg4ys" path="res://assets/images/chain_full.png" id="2_er12r"]
+[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="3_rhx5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiue0"]
+radius = 5.0
+
+[node name="Rope" type="Node2D"]
+script = ExtResource("1_7528q")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 100, 0)
+texture = ExtResource("2_er12r")
+texture_mode = 1
+
+[node name="FloatingMagnet" parent="." instance=ExtResource("1_64nh5")]
+
+[node name="AnchorPoint" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="AnchorPoint"]
+scale = Vector2(0.0787682, 0.0787682)
+texture = ExtResource("3_rhx5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnchorPoint"]
+shape = SubResource("CircleShape2D_qiue0")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="AnchorPoint"]
+stiffness = 64.0

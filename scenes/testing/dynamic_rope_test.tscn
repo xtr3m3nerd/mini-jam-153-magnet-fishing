@@ -6,7 +6,7 @@
 
 [node name="DynamicRopeTest" type="Node2D"]
 script = ExtResource("1_sh117")
-segment_length = 12.0
+segment_length = 36.0
 
 [node name="MobileRopeBase" parent="." instance=ExtResource("2_hkj2e")]
 
@@ -19,3 +19,7 @@ position = Vector2(0, 8)
 offset_right = 40.0
 offset_bottom = 23.0
 text = "10"
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+length = 10.0
+stiffness = 64.0
