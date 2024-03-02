@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1s5grvsomgae"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="1_4lapv"]
+[ext_resource type="Texture2D" uid="uid://dlhyyj8m4ny2i" path="res://assets/images/chain.png" id="2_k8nyl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fyi2m"]
+shader = ExtResource("1_4lapv")
+shader_parameter/flashColor = Color(0.698039, 0.686275, 0.788235, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0.12549, 0.117647, 0.141176, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fyi2m")
+texture = ExtResource("2_k8nyl")
