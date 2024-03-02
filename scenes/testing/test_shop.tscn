@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=5 format=3 uid="uid://h0e86e3416os"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
 [ext_resource type="Script" path="res://scenes/prefabs/player_inventory.gd" id="2_p0a6l"]
+[ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="4_yibra"]
 
 [node name="TestShop" type="Node2D"]
 
@@ -29,3 +30,5 @@ script = ExtResource("2_p0a6l")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1073, 563)
 texture = ExtResource("1_6et8l")
+
+[node name="DisplayItem" parent="." instance=ExtResource("4_yibra")]
