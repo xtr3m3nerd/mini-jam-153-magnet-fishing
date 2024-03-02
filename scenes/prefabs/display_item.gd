@@ -1,5 +1,7 @@
 extends TextureButton
 
+@onready var shop = $".."
+
 @export var displayed_upgrade : Upgrade
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +14,8 @@ func _ready():
 
 func _on_pressed():
 	print("Test")
+	
+	shop.purchased_item(displayed_upgrade)
 	
 	pass 
 

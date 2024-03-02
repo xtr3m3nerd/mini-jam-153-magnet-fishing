@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=13 format=3 uid="uid://h0e86e3416os"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop.gd" id="1_omqba"]
-[ext_resource type="Script" path="res://scenes/prefabs/player_inventory.gd" id="2_p0a6l"]
+[ext_resource type="Script" path="res://scenes/prefabs/player_upgrades.gd" id="2_p0a6l"]
+[ext_resource type="Script" path="res://scenes/prefabs/player_pickups.gd" id="3_gydq4"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="4_yibra"]
 [ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/length_upgrade_2.tres" id="6_ktn3d"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="6_kw4l7"]
@@ -50,7 +51,10 @@ text = "Hello"
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_3gmtx")
 
-[node name="Inventory" type="Node" parent="Player"]
+[node name="Pickups" type="Node" parent="Player"]
+script = ExtResource("3_gydq4")
+
+[node name="Upgrades" type="Node" parent="Player"]
 script = ExtResource("2_p0a6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
@@ -59,23 +63,23 @@ texture = ExtResource("1_6et8l")
 
 [node name="DisplayItem" parent="." instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_l7sbl")
-offset_left = 332.0
-offset_top = 303.0
-offset_right = 432.0
-offset_bottom = 403.0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 400.0
 
 [node name="DisplayItem2" parent="." instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_id6lm")
-offset_left = 524.0
-offset_top = 318.0
-offset_right = 624.0
-offset_bottom = 418.0
+offset_left = 550.0
+offset_top = 300.0
+offset_right = 650.0
+offset_bottom = 400.0
 displayed_upgrade = ExtResource("6_ktn3d")
 
 [node name="DisplayItem3" parent="." instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_36mue")
-offset_left = 728.0
-offset_top = 317.0
-offset_right = 828.0
-offset_bottom = 417.0
+offset_left = 700.0
+offset_top = 300.0
+offset_right = 800.0
+offset_bottom = 400.0
 displayed_upgrade = ExtResource("7_16lvj")
