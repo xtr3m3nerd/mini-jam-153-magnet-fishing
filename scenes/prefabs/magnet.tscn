@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://djolgnxu2mb7x"]
+[gd_scene load_steps=5 format=3 uid="uid://djolgnxu2mb7x"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_1ri4b"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="2_nvklw"]
@@ -7,8 +7,10 @@
 custom_solver_bias = 1.0
 radius = 16.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12qca"]
+
 [node name="Magnet" type="RigidBody2D"]
-position = Vector2(0, 16)
+collision_layer = 8
 script = ExtResource("1_1ri4b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,3 +19,17 @@ texture = ExtResource("2_nvklw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jjtrw")
+
+[node name="MagneticZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MagneticZone"]
+polygon = PackedVector2Array(-57, 84, -11, 0, 11, 0, 56, 84)
+
+[node name="StickyZone" type="Area2D" parent="."]
+scale = Vector2(-2, -2)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickyZone"]
+shape = SubResource("RectangleShape2D_12qca")

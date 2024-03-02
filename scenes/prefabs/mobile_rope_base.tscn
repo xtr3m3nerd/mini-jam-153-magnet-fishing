@@ -19,5 +19,3 @@ shape = SubResource("CircleShape2D_1rdyq")
 [node name="MountPoint" type="PinJoint2D" parent="."]
 position = Vector2(0, 8)
 node_a = NodePath("..")
-bias = 0.5
-softness = 0.01

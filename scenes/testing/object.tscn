@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://clc5mjwjkcjp1"]
+[gd_scene load_steps=5 format=3 uid="uid://4lip57hh47xs"]
 
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_1so25"]
+[ext_resource type="Script" path="res://scenes/prefabs/object.gd" id="1_y27gc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b6tx"]
 size = Vector2(32, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvwca"]
+
 [node name="Object" type="RigidBody2D" groups=["object"]]
 collision_layer = 3
+freeze_mode = 1
+script = ExtResource("1_y27gc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -14,3 +19,10 @@ texture = ExtResource("1_1so25")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7b6tx")
+
+[node name="StickyZone" type="Area2D" parent="."]
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickyZone"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hvwca")

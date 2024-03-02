@@ -1,48 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://b86nc1tyynsk8"]
+[gd_scene load_steps=4 format=3 uid="uid://c6j8jic0vhcgq"]
 
-[ext_resource type="Script" path="res://scenes/testing/floating_magnet.gd" id="1_3byju"]
-[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/red_blue_magnet.png" id="2_iex8c"]
+[ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_c7n18"]
+[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="2_06y36"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nqnmx"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pieg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7k1av"]
-radius = 135.05
+[node name="FloatingMagnet" type="Node2D"]
+script = ExtResource("1_c7n18")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fcxaa"]
-radius = 16.0
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_06y36")
 
-[node name="FloatingMagnet" type="RigidBody2D" groups=["player"]]
-collision_layer = 4
-lock_rotation = true
-script = ExtResource("1_3byju")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nqnmx")
-
-[node name="Magnet" type="RigidBody2D" parent="."]
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Magnet"]
-position = Vector2(0, 14)
-rotation = -3.14159
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_iex8c")
-
-[node name="MagneticZone" type="Area2D" parent="Magnet"]
+[node name="MagneticZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet/MagneticZone"]
-shape = SubResource("CircleShape2D_7k1av")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MagneticZone"]
+polygon = PackedVector2Array(-57, 84, -11, 0, 11, 0, 56, 84)
 
-[node name="Area2D" type="Area2D" parent="Magnet"]
-visible = false
+[node name="StickyZone" type="Area2D" parent="."]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
-position = Vector2(0, 23)
-shape = SubResource("CircleShape2D_fcxaa")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
-node_a = NodePath("..")
-node_b = NodePath("../Magnet")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StickyZone"]
+shape = SubResource("RectangleShape2D_7pieg")
