@@ -38,6 +38,26 @@ func _physics_process(delta):
 		
 		for object in sticky_zone.get_overlapping_bodies():
 			if object not in sticky_objects:
+			
+				
+				var sticky = object.get_node("StickyZone")
+				
+				var sticky_addition = sticky.duplicate()
+				sticky.get_node("CollisionShape2D").disabled = true
+				
+				sticky_zone.add_child(sticky_addition)
+				sticky_addition.global_position = object.position
+				
+				var object_pos = object.position
+				object.get_parent().remove_child(object)
+				self.add_child(object)
+				object.global_position = object_pos
+				object.get_node("CollisionShape2D").disabled = false
+				object.sleeping = true
+				object.gravity_scale = 0
+				object.is_stickied = true
+				object.freeze = true
+				
 				#var joint = DampedSpringJoint2D.new()
 				#
 				#joint.length = 1.1 * object.global_position.distance_to(self.global_position)
@@ -48,25 +68,7 @@ func _physics_process(delta):
 				#joint.position = Vector2.ZERO
 				#
 				#joint.node_a = object.get_path()
-				#joint.node_b = self.get_path()
-				
-				var sticky = object.get_node("StickyZone")
-				
-				var sticky_addition = sticky.duplicate()
-				sticky.get_node("CollisionShape2D").disabled = true
-				
-				sticky_zone.add_child(sticky_addition)
-				sticky_addition.global_position = object.position
-				
-				object.get_parent().remove_child(object)
-				self.add_child(object)
-				object.get_node("CollisionShape2D").disabled = true
-				object.sleeping = true
-				object.gravity_scale = 0
-				object.is_stickied = true
-				object.freeze = true
-				
-				
+				#joint.node_b = sticky_addition.get_path()
 				
 				#sticky_joints.append(joint)
 				original_sticky_colliders.append(sticky)
@@ -75,7 +77,7 @@ func _physics_process(delta):
 			
 	else:
 		#for joint in sticky_joints:
-		#	joint.queue_free()
+			#joint.queue_free()
 		for sticky_collider in sticky_colliders:
 			sticky_collider.queue_free()
 			
@@ -88,6 +90,11 @@ func _physics_process(delta):
 			object.sleeping = false
 			object.gravity_scale = 1
 			object.freeze = false
+			object.is_stickied = false
+			
+			#var object_pos = object.position
+			#object.get_parent().remove_child(object)
+			#object.global_position = object_pos
 		
 		#sticky_joints = []
 		sticky_objects = []
