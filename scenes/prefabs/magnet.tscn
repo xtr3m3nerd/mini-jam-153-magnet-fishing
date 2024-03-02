@@ -1,19 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://djolgnxu2mb7x"]
+[gd_scene load_steps=7 format=3 uid="uid://b86nc1tyynsk8"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_1ri4b"]
-[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="2_nvklw"]
+[ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_h51o2"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/red_blue_magnet.png" id="2_i04sg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jjtrw"]
-custom_solver_bias = 1.0
+[sub_resource type="Curve" id="Curve_o0r15"]
+_data = [Vector2(0, 0.186813), 0.0, 0.0, 0, 0, Vector2(0.610526, 0.967033), 0.0, 0.0, 0, 0, Vector2(0.836842, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqnmx"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7k1av"]
+radius = 112.894
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcxaa"]
 radius = 16.0
 
-[node name="Magnet" type="RigidBody2D"]
-position = Vector2(0, 16)
-script = ExtResource("1_1ri4b")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_nvklw")
+[node name="Magnet" type="RigidBody2D" groups=["player"]]
+collision_layer = 4
+collision_mask = 3
+mass = 2.0
+lock_rotation = true
+max_contacts_reported = 5
+contact_monitor = true
+script = ExtResource("1_h51o2")
+magnetic_stength_curve = SubResource("Curve_o0r15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_jjtrw")
+shape = SubResource("CircleShape2D_nqnmx")
+
+[node name="Magnet" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
+mass = 2.0
+max_contacts_reported = 5
+contact_monitor = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Magnet"]
+position = Vector2(0, 14)
+rotation = -3.14159
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_i04sg")
+
+[node name="MagneticZone" type="Area2D" parent="Magnet"]
+position = Vector2(0, 23)
+collision_layer = 0
+collision_mask = 2
+
+[node name="GeneralPull" type="CollisionShape2D" parent="Magnet/MagneticZone"]
+position = Vector2(0, 51)
+shape = SubResource("CircleShape2D_7k1av")
+
+[node name="DirectionalPull" type="CollisionPolygon2D" parent="Magnet/MagneticZone"]
+polygon = PackedVector2Array(-150, 200, -15, 0, 15, 0, 150, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+position = Vector2(0, 23)
+shape = SubResource("CircleShape2D_fcxaa")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../Magnet")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Magnet" to="." method="_on_body_entered"]
