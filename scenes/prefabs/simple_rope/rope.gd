@@ -83,7 +83,7 @@ func sort_by_closeness(array: Array, pos: Vector2) -> Array:
 	array.sort_custom(func(a, b): return (a - pos).length_squared() < (b - pos).length_squared())
 	return array
 
-func update_length(value: float):
+func update_length(_value: float):
 	update_anchor()
 
 func add_point(point: Vector2):
