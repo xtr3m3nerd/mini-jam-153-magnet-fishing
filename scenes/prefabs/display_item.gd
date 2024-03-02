@@ -1,4 +1,4 @@
-extends Node2D
+extends TextureButton
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,13 +11,19 @@ func _process(delta):
 	pass
 
 
-func _on_area_2d_mouse_entered():
-	print("Entered")
+
+
+
+func _on_pressed():
+	print("Test")
 	
 	pass # Replace with function body.
 
+func _on_mouse_entered():
+	material.set("shader_parameter/HovState",1)
+	pass # Replace with function body.
 
-func _on_area_2d_mouse_exited():
-	print("Exited")
-	
+
+func _on_mouse_exited():
+	material.set("shader_parameter/HovState",0)
 	pass # Replace with function body.
