@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_kfsq3")
 price = 10
-name = "Speed 1"
+name = "Swing Speed 1"
 type = 1
 texture = ExtResource("2_sagqu")

@@ -14,6 +14,7 @@ shader_parameter/outlineColHov = Color(0, 0, 0, 1)
 
 [node name="DisplayItem" type="TextureButton"]
 material = SubResource("ShaderMaterial_kt860")
+custom_minimum_size = Vector2(100, 100)
 offset_right = 100.0
 offset_bottom = 100.0
 texture_normal = ExtResource("1_l8vlq")

@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var shop = $".."
+@onready var shop = $"../../.."
 
 @export var displayed_upgrade : Upgrade
 
@@ -13,9 +13,8 @@ func _ready():
 	pass
 
 func _on_pressed():
-	print("Test")
 	
-	shop.purchased_item(displayed_upgrade)
+	shop.purchase_item(displayed_upgrade)
 	
 	pass 
 

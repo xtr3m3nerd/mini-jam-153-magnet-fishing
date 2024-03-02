@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=16 format=3 uid="uid://h0e86e3416os"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
@@ -31,6 +31,27 @@ shader_parameter/flashColor = Color(1, 1, 1, 1)
 shader_parameter/HovState = 0.0
 shader_parameter/outlineColHov = Color(0, 0, 0, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkkjn"]
+resource_local_to_scene = true
+shader = ExtResource("6_kw4l7")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbemj"]
+resource_local_to_scene = true
+shader = ExtResource("6_kw4l7")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0t6j"]
+resource_local_to_scene = true
+shader = ExtResource("6_kw4l7")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
 [node name="TestShop" type="Node2D"]
 script = ExtResource("1_omqba")
 
@@ -40,13 +61,51 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 448.0
+offset_right = 746.0
+offset_bottom = 548.0
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="DisplayItem" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_l7sbl")
+layout_mode = 2
+
+[node name="DisplayItem2" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_id6lm")
+layout_mode = 2
+displayed_upgrade = ExtResource("6_ktn3d")
+
+[node name="DisplayItem3" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_36mue")
+layout_mode = 2
+displayed_upgrade = ExtResource("7_16lvj")
+
+[node name="DisplayItem4" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_gkkjn")
+layout_mode = 2
+
+[node name="DisplayItem5" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_lbemj")
+layout_mode = 2
+
+[node name="DisplayItem6" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
+material = SubResource("ShaderMaterial_r0t6j")
+layout_mode = 2
+
+[node name="DisplayCurrentMoney" type="RichTextLabel" parent="Control"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 17.0
-offset_right = 112.0
-offset_bottom = 47.0
-text = "Hello"
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 152.0
+offset_bottom = 62.0
+text = "$Temp"
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_3gmtx")
@@ -60,26 +119,3 @@ script = ExtResource("2_p0a6l")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1073, 563)
 texture = ExtResource("1_6et8l")
-
-[node name="DisplayItem" parent="." instance=ExtResource("4_yibra")]
-material = SubResource("ShaderMaterial_l7sbl")
-offset_left = 400.0
-offset_top = 300.0
-offset_right = 500.0
-offset_bottom = 400.0
-
-[node name="DisplayItem2" parent="." instance=ExtResource("4_yibra")]
-material = SubResource("ShaderMaterial_id6lm")
-offset_left = 550.0
-offset_top = 300.0
-offset_right = 650.0
-offset_bottom = 400.0
-displayed_upgrade = ExtResource("6_ktn3d")
-
-[node name="DisplayItem3" parent="." instance=ExtResource("4_yibra")]
-material = SubResource("ShaderMaterial_36mue")
-offset_left = 700.0
-offset_top = 300.0
-offset_right = 800.0
-offset_bottom = 400.0
-displayed_upgrade = ExtResource("7_16lvj")
