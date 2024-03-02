@@ -55,6 +55,9 @@ func _physics_process(delta):
 				var sticky_addition = sticky.duplicate()
 				sticky.get_node("CollisionShape2D").disabled = true
 				
+				sticky_zone.add_child(sticky_addition)
+				sticky_addition.global_position = object.position
+				
 				object.get_parent().remove_child(object)
 				self.add_child(object)
 				object.get_node("CollisionShape2D").disabled = true
@@ -63,8 +66,7 @@ func _physics_process(delta):
 				object.is_stickied = true
 				object.freeze = true
 				
-				sticky_zone.add_child(sticky_addition)
-				sticky_addition.position = object.position
+				
 				
 				#sticky_joints.append(joint)
 				original_sticky_colliders.append(sticky)
