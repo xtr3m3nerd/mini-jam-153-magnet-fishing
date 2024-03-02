@@ -2,13 +2,13 @@ extends RigidBody2D
 
 @export var FORCE = 400
 @export var magnetic_strength = 100000
+@export var spring_tolerance = 4.0
 @onready var magnetic_zone: Area2D = $MagneticZone
 @onready var sticky_zone: Area2D = $StickyZone
 var is_magnet_active = false
 
 var sticky_objects = []
-var sticky_colliders = []
-var original_sticky_colliders = []
+var springs = []
 
 func _input(event):
 	if event.is_action_pressed("magnet"):
@@ -31,80 +31,39 @@ func _physics_process(delta):
 				
 				var force = pull_dir * magnetic_strength * delta
 				object.apply_force(force)
+		
+		var springs_to_remove = []
+		for i in springs.size():
+			var spring = springs[i]
+			var body = get_node(spring.node_b)
+			var dist = global_position.distance_to(body.global_position)
+			if dist > spring.rest_length * spring_tolerance:
+				springs_to_remove.append(spring)
+				spring.queue_free()
+				if body in sticky_objects:
+					sticky_objects.erase(body)
+		
+		for spring in springs_to_remove:
+			springs.erase(spring)
 
 func _on_body_entered(body):
 	if is_magnet_active and body.is_in_group("object") and not body in get_children():
-		var sticky = body.get_node("StickyZone")
-				
-		var sticky_addition = sticky.duplicate()
-		sticky.get_node("CollisionShape2D").disabled = true
-				
-		sticky_zone.add_child(sticky_addition)
-		sticky_addition.global_position = body.position
-				
-		var body_pos = body.position
-		body.get_parent().remove_child(body)
-		self.add_child(body)
-		body.global_position = body_pos
-		body.get_node("CollisionShape2D").disabled = false
-		body.sleeping = true
-		body.gravity_scale = 0
-		body.is_stickied = true
-
-		original_sticky_colliders.append(sticky)
-		sticky_colliders.append(sticky_addition)
+		
+		var spring: DampedSpringJoint2D = DampedSpringJoint2D.new()
+		spring.rest_length = global_position.distance_to(body.global_position) / 2.0
+		spring.length = spring.rest_length
+		spring.stiffness = 64
+		add_child(spring)
+		spring.node_a = get_path()
+		spring.node_b = body.get_path()
+		
 		sticky_objects.append(body)
-	
-	pass # Replace with function body.
-
-
-func _on_body_exited(body):
-	
-	#if body.is_in_group("object"):
-		#var sticky = body.get_node("StickyZone")
-		#sticky.get_node("CollisionShape2D").disabled = false
-		#original_sticky_colliders.erase(sticky)
-		#
-		#var sticky_collider = body.get_node("CollisionShape2D")
-		#sticky_zone.remove_child(sticky_collider)
-		#sticky_colliders.erase(sticky_collider)
-		##sticky_collider.queue_free()
-#
-		#
-		#body.get_node("CollisionShape2D").disabled = false
-		#body.sleeping = false
-		#body.gravity_scale = 1
-		#body.freeze = false
-		#body.is_stickied = false
-#
-		#var body_pos = body.global_position
-		#remove_child(body)
-		#get_parent().get_parent().add_child(body)
-		#body.global_position = body_pos
-
-
-	pass # Replace with function body.
+		springs.append(spring)
 
 
 func unstick_objects():
-	for sticky_collider in sticky_colliders:
-		sticky_collider.queue_free()
+	for spring in springs:
+		spring.queue_free()
 		
-	for sticky in original_sticky_colliders:
-		sticky.get_node("CollisionShape2D").disabled = false
-		
-	for object in sticky_objects:
-		object.get_node("CollisionShape2D").disabled = false
-		object.sleeping = false
-		object.gravity_scale = 1
-		object.freeze = false
-		object.is_stickied = false
-		
-		var object_pos = object.global_position
-		remove_child(object)
-		get_parent().get_parent().add_child(object)
-		object.global_position = object_pos
-	
 	sticky_objects = []
-	sticky_colliders = []
-	original_sticky_colliders = []
+	springs = []
