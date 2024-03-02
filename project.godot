@@ -23,6 +23,10 @@ MusicManager="*res://globals/music_manager.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 
+[dotnet]
+
+project/assembly_name="mini-jam-153-magnet-fishing"
+
 [input]
 
 move_left={
