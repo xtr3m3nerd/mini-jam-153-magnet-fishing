@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/length_upgrade_1.tres" id="4_fmtub"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kt860"]
+resource_local_to_scene = true
 shader = ExtResource("2_x37r2")
 shader_parameter/flashColor = Color(1, 1, 1, 1)
 shader_parameter/HovState = 0.0
@@ -33,7 +34,7 @@ offset_right = 45.0
 offset_bottom = 123.0
 grow_horizontal = 2
 bbcode_enabled = true
-text = "[center]$1000[/center]"
+text = "[center]$Temp[/center]"
 tab_size = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

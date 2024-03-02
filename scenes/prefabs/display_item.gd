@@ -7,6 +7,7 @@ func _ready():
 	var format_string = "[center]$%s[/center]"
 	$RichTextLabel.text = format_string % displayed_upgrade.price
 	
+	texture_normal = displayed_upgrade.texture
 	pass # Replace with function body.
 
 func _on_pressed():
