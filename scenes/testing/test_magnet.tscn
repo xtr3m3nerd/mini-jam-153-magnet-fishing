@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://cyg54bxmsjdsw"]
+
+[ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_pie0n"]
+[ext_resource type="Script" path="res://scenes/testing/move_tester.gd" id="3_p3xqu"]
+[ext_resource type="PackedScene" uid="uid://djolgnxu2mb7x" path="res://scenes/prefabs/magnet.tscn" id="4_bm0ju"]
+[ext_resource type="PackedScene" uid="uid://4lip57hh47xs" path="res://scenes/testing/object.tscn" id="4_r0fmc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
+texture = ExtResource("1_pie0n")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_u78de"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_xcba5")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyb3d"]
+
+[node name="TestString" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, -1)
+tile_set = SubResource("TileSet_u78de")
+format = 2
+layer_0/tile_data = PackedInt32Array(786441, 65536, 0, 786442, 65536, 0, 786443, 65536, 0, 786444, 65536, 0, 786445, 65536, 0, 851982, 65536, 0, 786450, 65536, 0, 786451, 65536, 0, 786452, 65536, 0, 786453, 65536, 0, 786454, 65536, 0, 655385, 65536, 0, 655386, 65536, 0, 655387, 65536, 0, 1114132, 65536, 0, 1114133, 65536, 0, 1114134, 65536, 0, 1114135, 65536, 0, 1114136, 65536, 0, 1114137, 65536, 0, 1114138, 65536, 0, 1114139, 65536, 0, 1114140, 65536, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(749, 422)
+zoom = Vector2(2, 2)
+
+[node name="Object" parent="." instance=ExtResource("4_r0fmc")]
+position = Vector2(755, 512)
+
+[node name="Object3" parent="." instance=ExtResource("4_r0fmc")]
+position = Vector2(705, 510)
+
+[node name="Object2" parent="." instance=ExtResource("4_r0fmc")]
+position = Vector2(840, 510)
+
+[node name="Node2D" type="CharacterBody2D" parent="."]
+position = Vector2(773, 349)
+motion_mode = 1
+script = ExtResource("3_p3xqu")
+
+[node name="Magnet" parent="Node2D" instance=ExtResource("4_bm0ju")]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CircleShape2D_vyb3d")
