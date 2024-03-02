@@ -55,7 +55,7 @@ func ray_collision_check(from: Vector2, to: Vector2):
 	return results
 
 func find_point_to_add(pos: Vector2):
-	var point_to_add = pos
+	var point_to_add = Vector2.ZERO
 	var check_points = []
 	var remainder = Vector2(fmod(pos.x, TILE_SIZE), fmod(pos.y, TILE_SIZE))
 	
@@ -77,7 +77,8 @@ func find_point_to_add(pos: Vector2):
 			point_to_add = point
 			break
 	
-	add_point(point_to_add)
+	if point_to_add != Vector2.ZERO:
+		add_point(point_to_add)
 
 func sort_by_closeness(array: Array, pos: Vector2) -> Array:
 	array.sort_custom(func(a, b): return (a - pos).length_squared() < (b - pos).length_squared())
