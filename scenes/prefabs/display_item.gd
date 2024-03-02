@@ -8,18 +8,27 @@ func _ready():
 	$RichTextLabel.text = format_string % displayed_upgrade.price
 	
 	texture_normal = displayed_upgrade.texture
-	pass # Replace with function body.
+	pass
 
 func _on_pressed():
 	print("Test")
 	
-	pass # Replace with function body.
+	pass 
+
+
+func _on_focus_entered():
+	material.set("shader_parameter/HovState",1)
+	pass
+
+func _on_focus_exited():
+	material.set("shader_parameter/HovState",0)
+	pass
+
+
 
 func _on_mouse_entered():
-	material.set("shader_parameter/HovState",1)
-	pass # Replace with function body.
-
-
+	_on_focus_entered()
+	pass
 func _on_mouse_exited():
-	material.set("shader_parameter/HovState",0)
-	pass # Replace with function body.
+	_on_focus_exited()
+	pass
