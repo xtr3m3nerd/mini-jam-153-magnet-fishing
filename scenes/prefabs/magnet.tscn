@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b86nc1tyynsk8"]
+[gd_scene load_steps=6 format=3 uid="uid://djolgnxu2mb7x"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_h51o2"]
 [ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/red_blue_magnet.png" id="2_i04sg"]
-
-[sub_resource type="Curve" id="Curve_o0r15"]
-_data = [Vector2(0, 0.186813), 0.0, 0.0, 0, 0, Vector2(0.610526, 0.967033), 0.0, 0.0, 0, 0, Vector2(0.836842, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
-point_count = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqnmx"]
 radius = 5.0
@@ -24,7 +20,6 @@ lock_rotation = true
 max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_h51o2")
-magnetic_stength_curve = SubResource("Curve_o0r15")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nqnmx")
