@@ -24,6 +24,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="AnchorPoint"]
+visible = false
 scale = Vector2(0.0787682, 0.0787682)
 texture = ExtResource("3_rhx5w")
 
