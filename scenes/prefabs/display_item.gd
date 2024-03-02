@@ -1,8 +1,12 @@
 extends TextureButton
 
+@export var displayed_upgrade : Upgrade
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var format_string = "[center]$%s[/center]"
+	$RichTextLabel.text = format_string % displayed_upgrade.price
+	
 	pass # Replace with function body.
 
 

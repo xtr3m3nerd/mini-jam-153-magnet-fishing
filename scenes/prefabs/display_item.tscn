@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwwhipiacpd5i"]
+[gd_scene load_steps=6 format=3 uid="uid://bwwhipiacpd5i"]
 
 [ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/rock_red.png" id="1_l8vlq"]
 [ext_resource type="Script" path="res://scenes/prefabs/display_item.gd" id="1_m0dg3"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="2_x37r2"]
+[ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/length_upgrade_1.tres" id="4_fmtub"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kt860"]
 shader = ExtResource("2_x37r2")
@@ -18,6 +19,7 @@ texture_normal = ExtResource("1_l8vlq")
 ignore_texture_size = true
 stretch_mode = 5
 script = ExtResource("1_m0dg3")
+displayed_upgrade = ExtResource("4_fmtub")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false

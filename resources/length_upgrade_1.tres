@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cahweifimwr1m"]
+
+[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_0rtx2"]
+
+[resource]
+script = ExtResource("1_0rtx2")
+price = 10
+name = "Length"
