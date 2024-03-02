@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwwhipiacpd5i"]
+
+[ext_resource type="Script" path="res://scenes/prefabs/display_item.gd" id="1_m0dg3"]
+[ext_resource type="Texture2D" uid="uid://c1ojmy6qm13o6" path="res://assets/images/rock_purple.png" id="1_xkcnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwbjt"]
+size = Vector2(95, 116)
+
+[node name="DisplayItem" type="Node2D"]
+script = ExtResource("1_m0dg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.249074, 0.227778)
+texture = ExtResource("1_xkcnh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 70.0
+offset_right = 47.0
+offset_bottom = 93.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[center]$1000[/center]"
+tab_size = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_uwbjt")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

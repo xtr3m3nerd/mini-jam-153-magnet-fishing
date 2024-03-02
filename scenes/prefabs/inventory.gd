@@ -2,16 +2,16 @@ extends Node
 
 class_name Inventory
 
-signal item_added(item)
-signal item_removed(item)
+signal item_added(item: Pickup)
+signal item_removed(item: Pickup)
 
-var items = []
+var items: Array[Pickup] = []
 var weight : float = 0.0
 
-func add_item(item):
+func add_item(item: Pickup):
 	items.append(item)
 	item_added.emit(item)
 
-func remove_item(item):
+func remove_item(item: Pickup):
 	items.erase(item)
 	item_removed.emit(item)
