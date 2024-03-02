@@ -52,6 +52,7 @@ motion_mode = 1
 script = ExtResource("3_p3xqu")
 
 [node name="Magnet" parent="Node2D" instance=ExtResource("4_bm0ju")]
+collision_layer = 1
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]

@@ -56,7 +56,7 @@ func _physics_process(delta):
 				object.sleeping = true
 				object.gravity_scale = 0
 				object.is_stickied = true
-				object.freeze = true
+
 				
 				#var joint = DampedSpringJoint2D.new()
 				#
@@ -92,9 +92,10 @@ func _physics_process(delta):
 			object.freeze = false
 			object.is_stickied = false
 			
-			#var object_pos = object.position
-			#object.get_parent().remove_child(object)
-			#object.global_position = object_pos
+			var object_pos = object.global_position
+			remove_child(object)
+			get_parent().get_parent().add_child(object)
+			object.global_position = object_pos
 		
 		#sticky_joints = []
 		sticky_objects = []
