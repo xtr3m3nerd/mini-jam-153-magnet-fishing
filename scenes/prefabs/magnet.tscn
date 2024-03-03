@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b86nc1tyynsk8"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_h51o2"]
-[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/red_blue_magnet.png" id="2_i04sg"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_i04sg"]
 [ext_resource type="Script" path="res://scenes/prefabs/magnetic_zone.gd" id="3_682o7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fcxaa"]

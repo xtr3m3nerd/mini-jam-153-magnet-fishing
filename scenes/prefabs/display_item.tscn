@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwwhipiacpd5i"]
 
-[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/rock_red.png" id="1_l8vlq"]
+[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/terrain/rock_red.png" id="1_l8vlq"]
 [ext_resource type="Script" path="res://scenes/prefabs/display_item.gd" id="1_m0dg3"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="2_x37r2"]
 
