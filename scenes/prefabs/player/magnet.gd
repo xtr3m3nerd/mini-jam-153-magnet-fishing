@@ -3,6 +3,7 @@ extends CharacterBody2D
  
 @onready var magnetic_zone : Area2D = $MagneticZone
 @onready var magnet_vfx = $MagnetVFX
+@onready var player_lighting = $PlayerLighting
 
 signal attract()
 signal detach()
@@ -21,11 +22,13 @@ var angular_velocity := 0.0
 var angular_accelleration := 0.0
 var angular_momentum := 0.0
 var used_length := 0.0
+var lighting_scale := 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sound_player := AudioStreamPlayer.new()
 
 func _ready():
+	player_lighting.hide()
 	length = anchor.distance_to(global_position)
 	angular_momentum = mass * angular_velocity * length
 	
@@ -46,8 +49,12 @@ func _ready():
 					magnetic_zone.magnetic_strength = upgrade.value
 					magnet_vfx.speed_scale = magnetic_zone.magnetic_strength / base_stength
 			Upgrade.Types.FLASHLIGHT:
-				pass
+				if upgrade.value > lighting_scale:
+					lighting_scale = upgrade.value
+					if lighting_scale > 0:
+						player_lighting.show()
 	
+	player_lighting.scale *= lighting_scale
 	add_child(sound_player)
 
 func _process(delta):

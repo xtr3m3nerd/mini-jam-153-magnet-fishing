@@ -4,14 +4,14 @@ extends Camera2D
 
 @export var max_height : float
 
-const SPEED = 0.75
-var target_y
+const SPEED = 1.5
+var target
 
 func _process(delta):
 	
-	target_y = player.global_position.y
+	target = player.global_position
 	
-	if target_y < max_height:
-		target_y = max_height
+	if target.y < max_height:
+		target.y = max_height
 	
-	global_position.y = lerpf(global_position.y, target_y, delta * SPEED)
+	global_position = global_position.lerp(target, delta * SPEED)
