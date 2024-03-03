@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 
 MusicManager="*res://globals/music_manager.tscn"
 TestingControls="*res://globals/testing_controls.tscn"
-PlayerManager="*res://scenes/prefabs/player.tscn"
-PickupManager="*res://scenes/prefabs/pickup_manager.tscn"
+PlayerManager="*res://globals/player_manager.tscn"
+PickupManager="*res://globals/pickup_manager.tscn"
+SceneManager="*res://globals/scene_manager.tscn"
 
 [display]
 

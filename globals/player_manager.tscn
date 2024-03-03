@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsr170gk3gbj1"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_hrwq6"]
+[ext_resource type="Script" path="res://globals/player_manager.gd" id="1_hrwq6"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_hwtb2"]
 [ext_resource type="Resource" uid="uid://bqtox6ctv87sa" path="res://resources/upgrades/swing_speed_upgrade_0.tres" id="3_ae5um"]
 [ext_resource type="Resource" uid="uid://csiqft6sa85i0" path="res://resources/upgrades/depth_speed_upgrade_0.tres" id="4_0jfox"]
@@ -10,7 +10,7 @@
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_hrwq6")
-upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("2_hwtb2"), ExtResource("3_ae5um"), ExtResource("4_0jfox"), ExtResource("5_xu2rp"), ExtResource("6_3i0he")])
+upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("2_hwtb2"), ExtResource("3_ae5um"), ExtResource("4_0jfox"), ExtResource("5_xu2rp"), ExtResource("6_3i0he")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1073, 563)

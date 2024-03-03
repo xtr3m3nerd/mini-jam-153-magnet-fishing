@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c8dkc2a1d1ia5"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/LitSprite.gdshader" id="1_dlgsq"]
-[ext_resource type="PackedScene" uid="uid://by8pdsvrvu8q4" path="res://scenes/prefabs/player_lighting.tscn" id="1_ohm8n"]
+[ext_resource type="PackedScene" uid="uid://by8pdsvrvu8q4" path="res://scenes/prefabs/player/player_lighting.tscn" id="1_ohm8n"]
 [ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/terrain/rock_brown.png" id="2_c48bc"]
-[ext_resource type="PackedScene" uid="uid://celiumetrk137" path="res://scenes/prefabs/lava.tscn" id="2_mts7s"]
+[ext_resource type="PackedScene" uid="uid://celiumetrk137" path="res://scenes/level/lava.tscn" id="2_mts7s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sx7hx"]
 shader = ExtResource("1_dlgsq")

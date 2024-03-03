@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://clc5mjwjkcjp1"]
 
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_1so25"]
-[ext_resource type="Script" path="res://scenes/prefabs/pickup.gd" id="1_bql5y"]
+[ext_resource type="Script" path="res://scenes/prefabs/pickups/pickup.gd" id="1_bql5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7b6tx"]
 size = Vector2(32, 32)

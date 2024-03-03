@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://cs3af0croqqp5"]
 
-[ext_resource type="Script" path="res://scenes/shop.gd" id="1_x10um"]
+[ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
 [ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/upgrades/length_upgrade_1.tres" id="3_ymubp"]
 [ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/upgrades/length_upgrade_2.tres" id="4_34urf"]
@@ -21,10 +21,10 @@
 [ext_resource type="Resource" uid="uid://cf8g450kwm1s8" path="res://resources/upgrades/strength_upgrade_1.tres" id="19_j524v"]
 [ext_resource type="Resource" uid="uid://djqowu5pgw3q8" path="res://resources/upgrades/strength_upgrade_2.tres" id="20_lyikr"]
 [ext_resource type="Resource" uid="uid://cs73gnhyku82q" path="res://resources/upgrades/strength_upgrade_3.tres" id="21_pp2o6"]
-[ext_resource type="Script" path="res://scenes/shop_ui.gd" id="22_kaouo"]
+[ext_resource type="Script" path="res://scenes/shop/shop_ui.gd" id="22_kaouo"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
 [ext_resource type="Texture2D" uid="uid://yirqjuylji5j" path="res://assets/images/enemies/grey_shark.png" id="24_son3k"]
-[ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="25_4bks0"]
+[ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/shop/display_item.tscn" id="25_4bks0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0otca"]
 resource_local_to_scene = true
@@ -70,7 +70,7 @@ shader_parameter/outlineColHov = Color(0, 0, 0, 1)
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_x10um")
-upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("2_7u1p1"), ExtResource("3_ymubp"), ExtResource("4_34urf"), ExtResource("5_t7inx"), ExtResource("6_eip7q"), ExtResource("7_lsc3r"), ExtResource("8_ir08t"), ExtResource("9_jtam1"), ExtResource("10_ywmii"), ExtResource("11_qs4l8"), ExtResource("12_viodb"), ExtResource("13_g4gbv"), ExtResource("14_7hhlu"), ExtResource("15_2uxyy"), ExtResource("16_07d6a"), ExtResource("17_ed7ho"), ExtResource("18_4f2kw"), ExtResource("19_j524v"), ExtResource("20_lyikr"), ExtResource("21_pp2o6")])
+upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("2_7u1p1"), ExtResource("3_ymubp"), ExtResource("4_34urf"), ExtResource("5_t7inx"), ExtResource("6_eip7q"), ExtResource("7_lsc3r"), ExtResource("8_ir08t"), ExtResource("9_jtam1"), ExtResource("10_ywmii"), ExtResource("11_qs4l8"), ExtResource("12_viodb"), ExtResource("13_g4gbv"), ExtResource("14_7hhlu"), ExtResource("15_2uxyy"), ExtResource("16_07d6a"), ExtResource("17_ed7ho"), ExtResource("18_4f2kw"), ExtResource("19_j524v"), ExtResource("20_lyikr"), ExtResource("21_pp2o6")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

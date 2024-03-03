@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dm7sl8slnpt4"]
 
 [ext_resource type="Texture2D" uid="uid://brj1ye55bkadx" path="res://assets/images/enemies/blue_shark.png" id="1_2kvv4"]
-[ext_resource type="Script" path="res://scenes/prefabs/enemy.gd" id="1_cnx4b"]
+[ext_resource type="Script" path="res://scenes/prefabs/enemies/enemy.gd" id="1_cnx4b"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="3_keynw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0w4f"]

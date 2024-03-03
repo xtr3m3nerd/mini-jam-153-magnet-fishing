@@ -26,4 +26,4 @@ func _on_body_entered(body):
 	pass # Replace with function body.
 
 func change_to_shop():
-	get_tree().change_scene_to_file("res://scenes/shop.tscn")
+	SceneManager.change_to_shop()

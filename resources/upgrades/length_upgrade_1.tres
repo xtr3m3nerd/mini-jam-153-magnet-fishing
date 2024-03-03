@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cahweifimwr1m"]
 
-[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_0rtx2"]
+[ext_resource type="Script" path="res://resources/classes/upgrade.gd" id="1_0rtx2"]
 [ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/terrain/rock_brown.png" id="2_vknm4"]
 
 [resource]

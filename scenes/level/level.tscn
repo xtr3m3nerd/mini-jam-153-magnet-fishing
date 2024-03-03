@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://dhrogtdvywvb"]
 
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="1_718on"]
-[ext_resource type="Script" path="res://scenes/level.gd" id="1_t3njj"]
-[ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="2_mwyy5"]
+[ext_resource type="Script" path="res://scenes/level/level.gd" id="1_t3njj"]
+[ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/player/rope.tscn" id="2_mwyy5"]
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="3_n2dlf"]
-[ext_resource type="Script" path="res://scenes/collection_zone.gd" id="4_k1ovo"]
+[ext_resource type="Script" path="res://scenes/level/collection_zone.gd" id="4_k1ovo"]
 [ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="6_4yamr"]
 [ext_resource type="PackedScene" uid="uid://cfca407ntysji" path="res://scenes/prefabs/pickups/mcguffin_pickup.tscn" id="7_30khn"]
 [ext_resource type="PackedScene" uid="uid://cvbqchkj3i03q" path="res://scenes/prefabs/pickups/nut_pickup.tscn" id="8_w4b75"]

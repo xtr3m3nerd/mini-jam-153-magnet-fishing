@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://g6gdwa4tn1xa"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/pickup_manager.gd" id="1_5acmc"]
+[ext_resource type="Script" path="res://globals/pickup_manager.gd" id="1_5acmc"]
 
 [node name="PickupManager" type="Node"]
 script = ExtResource("1_5acmc")

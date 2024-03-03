@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b86nc1tyynsk8"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_h51o2"]
-[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_uqlj4"]
-[ext_resource type="Script" path="res://scenes/prefabs/magnetic_zone.gd" id="3_682o7"]
+[ext_resource type="Script" path="res://scenes/prefabs/player/magnet.gd" id="1_qvp27"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_yw37o"]
+[ext_resource type="Script" path="res://scenes/prefabs/player/magnetic_zone.gd" id="3_pudvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ingdc"]
 radius = 16.0
@@ -24,13 +24,13 @@ radius = 112.894
 [node name="Magnet" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_h51o2")
+script = ExtResource("1_qvp27")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 14)
 rotation = -3.14159
 scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_uqlj4")
+texture = ExtResource("2_yw37o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 24)
@@ -53,7 +53,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 position = Vector2(0, 23)
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("3_682o7")
+script = ExtResource("3_pudvg")
 magnetic_stength_curve = SubResource("Curve_8de0f")
 
 [node name="GeneralPull" type="CollisionShape2D" parent="MagneticZone"]
