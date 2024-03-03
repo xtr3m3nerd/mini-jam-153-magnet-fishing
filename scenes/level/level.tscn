@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhrogtdvywvb"]
+[gd_scene load_steps=22 format=3 uid="uid://dhrogtdvywvb"]
 
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="1_718on"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_t3njj"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/player/rope.tscn" id="2_mwyy5"]
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="3_n2dlf"]
 [ext_resource type="Script" path="res://scenes/level/collection_zone.gd" id="4_k1ovo"]
+[ext_resource type="Script" path="res://scenes/level/collection_fade.gd" id="5_1l1gx"]
 [ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="6_4yamr"]
 [ext_resource type="PackedScene" uid="uid://cfca407ntysji" path="res://scenes/prefabs/pickups/mcguffin_pickup.tscn" id="7_30khn"]
 [ext_resource type="PackedScene" uid="uid://cvbqchkj3i03q" path="res://scenes/prefabs/pickups/nut_pickup.tscn" id="8_w4b75"]
@@ -73,10 +74,24 @@ fill_to = Vector2(0, 0)
 [node name="Level" type="Node2D"]
 script = ExtResource("1_t3njj")
 
+[node name="CollectionFadeStartPoint" type="Node2D" parent="."]
+position = Vector2(687, 258)
+
 [node name="DepthFollowCamera" parent="." instance=ExtResource("1_718on")]
 position = Vector2(758, 2235)
 zoom = Vector2(2, 2)
 max_height = 380.0
+
+[node name="CollectionFade" type="CanvasLayer" parent="DepthFollowCamera"]
+script = ExtResource("5_1l1gx")
+
+[node name="ColorRect" type="ColorRect" parent="DepthFollowCamera/CollectionFade"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [node name="Rope" parent="." instance=ExtResource("2_mwyy5")]
 position = Vector2(750, 136)
