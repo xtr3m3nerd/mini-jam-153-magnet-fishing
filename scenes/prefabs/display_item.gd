@@ -27,10 +27,12 @@ func _on_pressed():
 
 func _on_focus_entered():
 	material.set("shader_parameter/HovState",1)
+	$Sprite2D.material.set("shader_parameter/HovState",1)
 	pass
 
 func _on_focus_exited():
 	material.set("shader_parameter/HovState",0)
+	$Sprite2D.material.set("shader_parameter/HovState",0)
 	pass
 
 

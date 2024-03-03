@@ -1,7 +1,10 @@
 extends Control
 
+@onready var shop = $".."
+
 func _ready():
 	update_money_display()
+	$HBoxContainer/DisplayItem.grab_focus()
 	pass
 
 func update_money_display():
@@ -12,8 +15,7 @@ func update_money_display():
 func _on_shop_purchased_item(_item):
 	update_money_display()
 	pass 
-
-
+	
 
 func _on_texture_button_focus_entered():
 	$ContinueButton.material.set("shader_parameter/HovState",1)
@@ -29,4 +31,3 @@ func _on_texture_button_mouse_entered():
 func _on_texture_button_mouse_exited():
 	_on_texture_button_focus_exited()
 	pass
-

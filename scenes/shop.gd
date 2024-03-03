@@ -32,8 +32,13 @@ func _ready():
 				upgrade_display.update_display()
 				
 		
-		upgrade_display.disabled = false
-		upgrade_display.text.show()
+		if(upgrade_level <= 3): #hardcoded max level ;-;
+			upgrade_display.disabled = false
+			upgrade_display.text.show()
+		else:
+			upgrade_display.disabled = true
+			upgrade_display.texture_normal = null
+			upgrade_display.text.hide()
 
 
 
@@ -51,6 +56,8 @@ func remove_item(item : Upgrade):
 			upgrade_display.disabled = true
 			upgrade_display.texture_normal = null
 			upgrade_display.text.hide()
+
+
 	pass
 
 func purchase_item(item : Upgrade):
