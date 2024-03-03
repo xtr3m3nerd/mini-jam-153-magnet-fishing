@@ -12,7 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	if(fade_start_point_y > player.global_position.y):
 		var alpha = (player.global_position.y - fade_start_point_y) / (collection_zone_point_y - player.global_position.y)
