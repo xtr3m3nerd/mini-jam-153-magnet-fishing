@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @export var anchor: Vector2 = Vector2.ZERO
 @export var length_speed: float = 50.0
-@export var move_speed: float = 100
+@export var move_speed: float = 100.0
 @export var damping: float = 0.9
 @export var mass: float = 1.0
 
@@ -52,11 +52,16 @@ func _physics_process(delta):
 	var check_velocity = corrected_pos - global_position
 	velocity = check_velocity / delta
 	
-	var collision := move_and_collide(velocity * delta)
+	if length < 16 and global_position.y > anchor.y - 8.0:
+		velocity += Vector2.UP * 500.0
+	
+	var collision := move_and_collide(velocity * delta,true)
 	
 	if collision:
 		angular_velocity = 0.0
 		angular_momentum = 0.0
+	
+	move_and_slide()
 	
 	var corrected_length = global_position.distance_to(anchor)
 	length = corrected_length
