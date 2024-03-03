@@ -2,8 +2,6 @@ extends Node2D
 
 signal purchased_item(item)
 
-@onready var player : Player = PlayerManager
-
 @export var upgrades : Array[Upgrade] = []
 @onready var upgrade_displays = $Control/HBoxContainer.get_children()
 var displayed_upgrades = []
@@ -15,7 +13,7 @@ func _ready():
 		#find which upgrade type and level based on player's current upgrades
 		var upgrade_level = 0
 		var upgrade_type = Upgrade.Types.LENGTH
-		for upgrade in player.upgrades:
+		for upgrade in PlayerManager.upgrades:
 			if(upgrade.type == upgrade_display.displayed_upgrade.type):
 				upgrade_type = upgrade.type
 				
