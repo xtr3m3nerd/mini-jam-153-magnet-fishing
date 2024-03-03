@@ -1,79 +1,71 @@
-extends RigidBody2D
+class_name PendulumBody2D
+extends CharacterBody2D
+ 
+@export var anchor: Vector2 = Vector2.ZERO
+@export var length_speed: float = 50.0
+@export var move_speed: float = 100
+@export var damping: float = 0.9
+@export var mass: float = 1.0
 
-@export var movement_force = 400
-@export var magnetic_strength = 1000
-@export var magnetic_stength_curve: Curve
-@export var magnetic_curve_range: float = 200.0
-@export var spring_tolerance = 4.0
-@onready var magnetic_zone: Area2D = $Magnet/MagneticZone
+var length := 1.0
+var angle := 0.0
+var angular_velocity := 0.0
+var angular_accelleration := 0.0
+var angular_momentum := 0.0
 
-@export var num_springs: int = 1
-
-var is_magnet_active = false
-
-var sticky_pickups = []
-var springs = []
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	if not magnetic_stength_curve:
-		magnetic_stength_curve = Curve.new()
+	length = anchor.distance_to(global_position)
+	angular_momentum = mass * angular_velocity * length
 
-func _input(event):
-	if event.is_action_pressed("magnet"):
-		is_magnet_active = !is_magnet_active
-		if not is_magnet_active:
-			unstick_pickups()
+func _process(delta):
+	var change = Input.get_axis("move_up", "move_down")
+	length += change * length_speed * delta
+	angular_velocity = angular_momentum / (mass * length)
 
 func _physics_process(delta):
-	var direction = Input.get_axis("move_left", "move_right")
-	apply_central_force(Vector2.RIGHT * direction * movement_force)
+	angle = -PI/2 + atan2(global_position.y - anchor.y, global_position.x - anchor.x)
+	angular_accelleration = gravity * sin(angle)
+	angular_velocity += angular_accelleration * delta
+	angular_velocity *= pow(damping, delta)
 	
-	if Input.is_action_pressed("magnet"):
-		for pickup in magnetic_zone.get_overlapping_bodies():
-			#if pickup in sticky_pickups:
-				#break
-			var pickup_distance = pickup.global_position.distance_to(global_position)
-			var pull_dir = pickup.global_position.direction_to(global_position).normalized()
-			
-			var curve_strength = magnetic_stength_curve.sample(clamp(1.0 - pickup_distance/magnetic_curve_range, 0.0, 1.0))
-			var force = pull_dir * magnetic_strength * curve_strength  * delta 
-			pickup.apply_central_impulse(force)
-			apply_central_impulse(-force)
-			#apply_force(-force)
-		
-		var springs_to_remove = []
-		for i in springs.size():
-			var spring = springs[i]
-			var body = get_node(spring.node_b)
-			var dist = global_position.distance_to(body.global_position)
-			if dist > spring.rest_length * spring_tolerance:
-				springs_to_remove.append(spring)
-				spring.queue_free()
-				if body in sticky_pickups:
-					sticky_pickups.erase(body)
-		
-		for spring in springs_to_remove:
-			springs.erase(spring)
+	var old_velocity = angular_velocity
+	var direction = Input.get_axis("move_left", "move_right")
+	angular_velocity += direction * move_speed * delta
+	angular_momentum = mass * angular_velocity * length
+	
+	var temp_velocity = Vector2(
+		angular_velocity * cos(angle),
+		angular_velocity * sin(angle))
+	
+	var new_pos = Vector2(
+		global_position.x + temp_velocity.x * delta,
+		global_position.y + temp_velocity.y * delta)
+	
+	var vector = new_pos - anchor
+	vector = vector.normalized() * length
+	var corrected_pos = anchor + vector
+	
+	var check_velocity = corrected_pos - global_position
+	velocity = check_velocity / delta
+	
+	var collision := move_and_collide(velocity * delta)
+	
+	if collision:
+		angular_velocity = 0.0
+		angular_momentum = 0.0
+	
+	var corrected_length = global_position.distance_to(anchor)
+	length = corrected_length
 
-func _on_body_entered(body):
-	if is_magnet_active and body.is_in_group("pickup") and not body in get_children():
-		
-		for i in num_springs:
-			var spring: DampedSpringJoint2D = DampedSpringJoint2D.new()
-			spring.rest_length = global_position.distance_to(body.global_position) / 2.0
-			spring.length = spring.rest_length
-			spring.stiffness = 64
-			add_child(spring)
-			spring.node_a = get_path()
-			spring.node_b = body.get_path()
-			
-			springs.append(spring)
-		
-		sticky_pickups.append(body)
+func update_anchor(new_anchor: Vector2):
+	anchor = new_anchor
+	length = global_position.distance_to(new_anchor)
 
-func unstick_pickups():
-	for spring in springs:
-		spring.queue_free()
-		
-	sticky_pickups = []
-	springs = []
+func set_starting(new_anchor: Vector2, pos: Vector2):
+	anchor = new_anchor
+	global_position = pos
+	length = anchor.distance_to(global_position)
+	angular_velocity = 0.0
+	angular_momentum = 0.0
