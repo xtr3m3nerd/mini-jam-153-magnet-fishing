@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://celiumetrk137"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/Lava.gdshader" id="1_vgpjh"]
+[ext_resource type="Texture2D" uid="uid://q37h0hf70021" path="res://assets/images/LavaDistortion.png" id="2_nmalt"]
+[ext_resource type="Texture2D" uid="uid://cm70l8mjelgb0" path="res://assets/images/BayleeLava.png" id="3_go8qx"]
+[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="4_sfkbq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nxbe7"]
+shader = ExtResource("1_vgpjh")
+shader_parameter/lavaOpacity = 0.34
+shader_parameter/noiseScaleX = 0.009
+shader_parameter/noiseScaleY = 0.021
+shader_parameter/distortionScale = 100.0
+shader_parameter/distortionStrength = 80.0
+shader_parameter/surfaceHeight = -100.0
+shader_parameter/lavaGradient = ExtResource("3_go8qx")
+shader_parameter/lavaDistortion = ExtResource("2_nmalt")
+
+[sub_resource type="Gradient" id="Gradient_jgi04"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_38q72"]
+gradient = SubResource("Gradient_jgi04")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 0.226496)
+
+[node name="LavaMain" type="Sprite2D"]
+material = SubResource("ShaderMaterial_nxbe7")
+scale = Vector2(10.1094, 7.125)
+texture = ExtResource("4_sfkbq")
+
+[node name="LavaSurfaceLight" type="PointLight2D" parent="."]
+position = Vector2(-0.0989179, -18.9474)
+scale = Vector2(2.00309, 2.61184)
+color = Color(0.972549, 0.972549, 0.615686, 1)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_38q72")
