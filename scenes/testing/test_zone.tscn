@@ -43,4 +43,4 @@ position = Vector2(760, 226)
 zoom = Vector2(2, 2)
 
 [node name="Rope" parent="." instance=ExtResource("4_xnrau")]
-position = Vector2(769, 136)
+position = Vector2(510, 255)
