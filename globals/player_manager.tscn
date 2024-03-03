@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsr170gk3gbj1"]
+[gd_scene load_steps=7 format=3 uid="uid://kdn7vwshkcde"]
 
 [ext_resource type="Script" path="res://globals/player_manager.gd" id="1_hrwq6"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_hwtb2"]
@@ -9,4 +9,5 @@
 
 [node name="PlayerManager" type="Node"]
 script = ExtResource("1_hrwq6")
+starting_money = 50
 starting_upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("4_0jfox"), ExtResource("5_xu2rp"), ExtResource("2_hwtb2"), ExtResource("6_3i0he"), ExtResource("3_ae5um")])
