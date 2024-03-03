@@ -1,6 +1,9 @@
 class_name PendulumBody2D
 extends CharacterBody2D
  
+@onready var magnetic_zone : Area2D = $MagneticZone
+
+
 @export var anchor: Vector2 = Vector2.ZERO
 @export var length_speed: float = 50.0
 @export var move_speed: float = 100.0

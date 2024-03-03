@@ -2,7 +2,7 @@ extends Node2D
 
 signal purchased_item(item)
 
-@onready var player : Player = $Player
+@onready var player : Player = PlayerManager
 
 @export var upgrades : Array[Upgrade] = []
 @onready var upgrade_displays = $Control/HBoxContainer.get_children()
@@ -32,8 +32,13 @@ func _ready():
 				upgrade_display.update_display()
 				
 		
-		upgrade_display.disabled = false
-		upgrade_display.text.show()
+		if(upgrade_level <= 3): #hardcoded max level ;-;
+			upgrade_display.disabled = false
+			upgrade_display.text.show()
+		else:
+			upgrade_display.disabled = true
+			upgrade_display.texture_normal = null
+			upgrade_display.text.hide()
 
 
 
@@ -41,15 +46,9 @@ func _ready():
 	
 	
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 	
 	
 func remove_item(item : Upgrade):
-	print(item.name)
-	
 	upgrades.erase(item)
 	
 	for upgrade_display in upgrade_displays:
@@ -57,12 +56,14 @@ func remove_item(item : Upgrade):
 			upgrade_display.disabled = true
 			upgrade_display.texture_normal = null
 			upgrade_display.text.hide()
+
+
 	pass
 
 func purchase_item(item : Upgrade):
-	if($Player.money >= item.price):
-		$Player.upgrades.append(item)
-		$Player.money -= item.price
+	if(PlayerManager.money >= item.price):
+		PlayerManager.upgrades.append(item)
+		PlayerManager.money -= item.price
 		
 		purchased_item.emit(item)
 		
@@ -70,3 +71,8 @@ func purchase_item(item : Upgrade):
 	else:
 		#TODO: Play can't purchase sound
 		pass
+
+
+func _on_continue_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	pass # Replace with function body.

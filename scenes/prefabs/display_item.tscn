@@ -1,11 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwwhipiacpd5i"]
+[gd_scene load_steps=8 format=3 uid="uid://bwwhipiacpd5i"]
 
 [ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/terrain/rock_red.png" id="1_l8vlq"]
 [ext_resource type="Script" path="res://scenes/prefabs/display_item.gd" id="1_m0dg3"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="2_x37r2"]
 [ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/upgrades/length_upgrade_1.tres" id="4_fmtub"]
+[ext_resource type="Texture2D" uid="uid://cfunkvigljhhv" path="res://assets/images/circlething.png" id="5_l3ggs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kt860"]
+resource_local_to_scene = true
+shader = ExtResource("2_x37r2")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0op1"]
 resource_local_to_scene = true
 shader = ExtResource("2_x37r2")
 shader_parameter/flashColor = Color(1, 1, 1, 1)
@@ -37,6 +45,13 @@ grow_horizontal = 2
 bbcode_enabled = true
 text = "[center]$Temp[/center]"
 tab_size = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_n0op1")
+position = Vector2(49, 67)
+scale = Vector2(0.183, 0.2)
+texture = ExtResource("5_l3ggs")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

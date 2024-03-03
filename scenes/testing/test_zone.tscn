@@ -1,26 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg87jgoat87v"]
+[gd_scene load_steps=5 format=3 uid="uid://bu16728vtuckk"]
 
-[ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_6o3ml"]
 [ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/prefabs/pickup.tscn" id="2_p57a4"]
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="3_b1a5v"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="4_xnrau"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
-texture = ExtResource("1_6o3ml")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
 [sub_resource type="TileSet" id="TileSet_u78de"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_xcba5")
 
 [node name="TestZone" type="Node2D"]
 

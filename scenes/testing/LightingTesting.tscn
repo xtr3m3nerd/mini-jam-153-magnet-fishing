@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8dkc2a1d1ia5"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/LitSprite.gdshader" id="1_dlgsq"]
+[ext_resource type="PackedScene" uid="uid://by8pdsvrvu8q4" path="res://scenes/prefabs/player_lighting.tscn" id="1_ohm8n"]
+[ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/terrain/rock_brown.png" id="2_c48bc"]
+[ext_resource type="PackedScene" uid="uid://celiumetrk137" path="res://scenes/prefabs/lava.tscn" id="2_mts7s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sx7hx"]
+shader = ExtResource("1_dlgsq")
+
+[node name="LightingTesting" type="Node2D"]
+
+[node name="PlayerLighting" parent="." instance=ExtResource("1_ohm8n")]
+
+[node name="LavaMain" parent="." instance=ExtResource("2_mts7s")]
+position = Vector2(20.5008, 190)
+scale = Vector2(11.211, 7.125)
+
+[node name="LevelVis" type="Node2D" parent="."]
+
+[node name="RockBrown5" type="Sprite2D" parent="LevelVis"]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(573, -728)
+scale = Vector2(0.396776, 0.3605)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown4" type="Sprite2D" parent="LevelVis"]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(505, -556)
+scale = Vector2(0.352207, 0.322703)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown3" type="Sprite2D" parent="LevelVis"]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(-200, -738)
+scale = Vector2(0.457192, 0.428156)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown2" type="Sprite2D" parent="LevelVis"]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(492, -377)
+scale = Vector2(0.593471, 0.568069)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown" type="Sprite2D" parent="LevelVis"]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(405, -228)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="LevelShadow" type="DirectionalLight2D" parent="."]
+blend_mode = 1
+
+[node name="RockBrown" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(433, 39)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(429, 309)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(397, 618)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(573, 177.5)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown5" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(569, 447.5)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")
+
+[node name="RockBrown6" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_sx7hx")
+position = Vector2(537, 756.5)
+scale = Vector2(0.77037, 0.753704)
+texture = ExtResource("2_c48bc")

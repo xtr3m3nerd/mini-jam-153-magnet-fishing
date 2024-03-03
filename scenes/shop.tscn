@@ -1,0 +1,168 @@
+[gd_scene load_steps=32 format=3 uid="uid://h0e86e3416os"]
+
+[ext_resource type="Script" path="res://scenes/shop.gd" id="1_x10um"]
+[ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
+[ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/upgrades/length_upgrade_1.tres" id="3_ymubp"]
+[ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/upgrades/length_upgrade_2.tres" id="4_34urf"]
+[ext_resource type="Resource" uid="uid://dmlvh07uhlcik" path="res://resources/upgrades/length_upgrade_3.tres" id="5_t7inx"]
+[ext_resource type="Resource" uid="uid://bqtox6ctv87sa" path="res://resources/upgrades/swing_speed_upgrade_0.tres" id="6_eip7q"]
+[ext_resource type="Resource" uid="uid://w3csfe0m5pdh" path="res://resources/upgrades/swing_speed_upgrade_1.tres" id="7_lsc3r"]
+[ext_resource type="Resource" uid="uid://ky77gcnm43g0" path="res://resources/upgrades/swing_speed_upgrade_2.tres" id="8_ir08t"]
+[ext_resource type="Resource" uid="uid://dvo0e84jhs03n" path="res://resources/upgrades/swing_speed_upgrade_3.tres" id="9_jtam1"]
+[ext_resource type="Resource" uid="uid://csiqft6sa85i0" path="res://resources/upgrades/depth_speed_upgrade_0.tres" id="10_ywmii"]
+[ext_resource type="Resource" uid="uid://b730mmgm56u4w" path="res://resources/upgrades/depth_speed_upgrade_1.tres" id="11_qs4l8"]
+[ext_resource type="Resource" uid="uid://c450yb677xb1n" path="res://resources/upgrades/depth_speed_upgrade_2.tres" id="12_viodb"]
+[ext_resource type="Resource" uid="uid://b07fixet1epdb" path="res://resources/upgrades/depth_speed_upgrade_3.tres" id="13_g4gbv"]
+[ext_resource type="Resource" uid="uid://cnyv56dxic8y7" path="res://resources/upgrades/flashlight_upgrade_0.tres" id="14_7hhlu"]
+[ext_resource type="Resource" uid="uid://coa2xa1as87cp" path="res://resources/upgrades/flashlight_upgrade_1.tres" id="15_2uxyy"]
+[ext_resource type="Resource" uid="uid://hdojn7qqhau1" path="res://resources/upgrades/flashlight_upgrade_2.tres" id="16_07d6a"]
+[ext_resource type="Resource" uid="uid://b4gaurxn4b1tu" path="res://resources/upgrades/flashlight_upgrade_3.tres" id="17_ed7ho"]
+[ext_resource type="Resource" uid="uid://bqjd8goxb6mj8" path="res://resources/upgrades/strength_upgrade_0.tres" id="18_4f2kw"]
+[ext_resource type="Resource" uid="uid://cf8g450kwm1s8" path="res://resources/upgrades/strength_upgrade_1.tres" id="19_j524v"]
+[ext_resource type="Resource" uid="uid://djqowu5pgw3q8" path="res://resources/upgrades/strength_upgrade_2.tres" id="20_lyikr"]
+[ext_resource type="Resource" uid="uid://cs73gnhyku82q" path="res://resources/upgrades/strength_upgrade_3.tres" id="21_pp2o6"]
+[ext_resource type="Script" path="res://scenes/shop_ui.gd" id="22_kaouo"]
+[ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
+[ext_resource type="Texture2D" uid="uid://yirqjuylji5j" path="res://assets/images/enemies/grey_shark.png" id="24_son3k"]
+[ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="25_4bks0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0otca"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7sbl"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_id6lm"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36mue"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkkjn"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lbemj"]
+resource_local_to_scene = true
+shader = ExtResource("23_ne0bj")
+shader_parameter/flashColor = Color(1, 1, 1, 1)
+shader_parameter/HovState = 0.0
+shader_parameter/outlineColHov = Color(0, 0, 0, 1)
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_x10um")
+upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("2_7u1p1"), ExtResource("3_ymubp"), ExtResource("4_34urf"), ExtResource("5_t7inx"), ExtResource("6_eip7q"), ExtResource("7_lsc3r"), ExtResource("8_ir08t"), ExtResource("9_jtam1"), ExtResource("10_ywmii"), ExtResource("11_qs4l8"), ExtResource("12_viodb"), ExtResource("13_g4gbv"), ExtResource("14_7hhlu"), ExtResource("15_2uxyy"), ExtResource("16_07d6a"), ExtResource("17_ed7ho"), ExtResource("18_4f2kw"), ExtResource("19_j524v"), ExtResource("20_lyikr"), ExtResource("21_pp2o6")])
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("22_kaouo")
+
+[node name="ContinueButton" type="TextureButton" parent="Control"]
+material = SubResource("ShaderMaterial_0otca")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 986.0
+offset_top = 122.0
+offset_right = 2186.0
+offset_bottom = 1322.0
+scale = Vector2(0.1, 0.1)
+focus_neighbor_left = NodePath("../HBoxContainer/DisplayItem5")
+focus_neighbor_bottom = NodePath("../HBoxContainer/DisplayItem5")
+focus_previous = NodePath("../HBoxContainer/DisplayItem5")
+texture_normal = ExtResource("24_son3k")
+stretch_mode = 5
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 448.0
+offset_right = 746.0
+offset_bottom = 548.0
+grow_vertical = 0
+
+[node name="DisplayItem" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
+material = SubResource("ShaderMaterial_l7sbl")
+layout_mode = 2
+focus_neighbor_right = NodePath("../DisplayItem2")
+focus_next = NodePath("../DisplayItem2")
+displayed_upgrade = ExtResource("2_7u1p1")
+
+[node name="DisplayItem2" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
+material = SubResource("ShaderMaterial_id6lm")
+layout_mode = 2
+focus_neighbor_left = NodePath("../DisplayItem")
+focus_neighbor_right = NodePath("../DisplayItem3")
+focus_next = NodePath("../DisplayItem3")
+focus_previous = NodePath("../DisplayItem")
+displayed_upgrade = ExtResource("6_eip7q")
+
+[node name="DisplayItem3" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
+material = SubResource("ShaderMaterial_36mue")
+layout_mode = 2
+focus_neighbor_left = NodePath("../DisplayItem2")
+focus_neighbor_right = NodePath("../DisplayItem4")
+focus_next = NodePath("../DisplayItem4")
+focus_previous = NodePath("../DisplayItem2")
+displayed_upgrade = ExtResource("10_ywmii")
+
+[node name="DisplayItem4" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
+material = SubResource("ShaderMaterial_gkkjn")
+layout_mode = 2
+focus_neighbor_left = NodePath("../DisplayItem3")
+focus_neighbor_right = NodePath("../DisplayItem5")
+focus_next = NodePath("../DisplayItem5")
+focus_previous = NodePath("../DisplayItem3")
+displayed_upgrade = ExtResource("18_4f2kw")
+
+[node name="DisplayItem5" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
+material = SubResource("ShaderMaterial_lbemj")
+layout_mode = 2
+focus_neighbor_left = NodePath("../DisplayItem4")
+focus_neighbor_top = NodePath("../../ContinueButton")
+focus_neighbor_right = NodePath("../../ContinueButton")
+focus_next = NodePath("../../ContinueButton")
+focus_previous = NodePath("../DisplayItem4")
+displayed_upgrade = ExtResource("14_7hhlu")
+
+[node name="DisplayCurrentMoney" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 152.0
+offset_bottom = 62.0
+text = "$Temp"
+
+[connection signal="purchased_item" from="." to="." method="remove_item"]
+[connection signal="purchased_item" from="." to="Control" method="_on_shop_purchased_item"]
+[connection signal="focus_entered" from="Control/ContinueButton" to="Control" method="_on_texture_button_focus_entered"]
+[connection signal="focus_exited" from="Control/ContinueButton" to="Control" method="_on_texture_button_focus_exited"]
+[connection signal="mouse_entered" from="Control/ContinueButton" to="Control" method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/ContinueButton" to="Control" method="_on_texture_button_mouse_exited"]
+[connection signal="pressed" from="Control/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="focus_exited" from="Control/HBoxContainer" to="Control" method="_on_h_box_container_focus_exited"]
