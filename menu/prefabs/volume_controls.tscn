@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://capb0aa54sbax"]
+
+[ext_resource type="Script" path="res://menu/prefabs/volume_controls.gd" id="1_l18mi"]
+
+[node name="VolumeControls" type="VBoxContainer" node_paths=PackedStringArray("sliders_with_sounds")]
+offset_right = 304.0
+offset_bottom = 88.0
+script = ExtResource("1_l18mi")
+sliders_with_sounds = [NodePath("MusicVolume/MusicSlider"), NodePath("SfxVolume/SfxSlider")]
+
+[node name="MusicVolume" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MusicVolume"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Music:"
+
+[node name="MusicSlider" type="HSlider" parent="MusicVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxVolume" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SfxVolume"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sfx:"
+
+[node name="SfxSlider" type="HSlider" parent="SfxVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[connection signal="value_changed" from="MusicVolume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SfxVolume/SfxSlider" to="." method="_on_sfx_slider_value_changed"]

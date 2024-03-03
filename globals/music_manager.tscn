@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://du6wlm71e3rte"]
+[gd_scene load_steps=3 format=3 uid="uid://du6wlm71e3rte"]
 
 [ext_resource type="Script" path="res://globals/music_manager.gd" id="1_pe1pf"]
+[ext_resource type="AudioStream" uid="uid://rwki6tyb4otx" path="res://assets/music/cavefisher.ogg" id="2_u51g0"]
 
 [node name="MusicManager" type="Node"]
 script = ExtResource("1_pe1pf")
+game_music = Array[AudioStream]([ExtResource("2_u51g0")])
 
 [node name="Track1" type="AudioStreamPlayer" parent="."]
 bus = &"Music"

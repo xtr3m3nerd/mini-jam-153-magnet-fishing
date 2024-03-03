@@ -1,9 +1,103 @@
-[gd_scene format=3 uid="uid://ca7703kh4e8m"]
+[gd_scene load_steps=5 format=3 uid="uid://c32ywwqsseyjr"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_cjnrv"]
+[ext_resource type="PackedScene" uid="uid://capb0aa54sbax" path="res://menu/prefabs/volume_controls.tscn" id="2_atbtv"]
+[ext_resource type="Texture2D" uid="uid://dl2mb1sk8mrg6" path="res://assets/images/main_character.png" id="3_3260i"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="4_u5q53"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("buttons_with_sounds") groups=["menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cjnrv")
+buttons_with_sounds = [NodePath("Buttons/PlayButton"), NodePath("Buttons/RulesButton"), NodePath("Buttons/CreditsButton"), NodePath("Buttons/ExitButton")]
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 55.0
+offset_right = 481.0
+offset_bottom = 192.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Untitled Magnet Game"
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -2.0
+offset_right = 52.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play Game"
+
+[node name="RulesButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "How To Play
+"
+
+[node name="CreditsButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Exit"
+
+[node name="VolumeControls" parent="." instance=ExtResource("2_atbtv")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -112.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(286, 480)
+scale = Vector2(0.414176, 0.414176)
+texture = ExtResource("3_3260i")
+
+[node name="RedBlueMagnet" type="Sprite2D" parent="."]
+position = Vector2(973, 395)
+rotation = -0.876731
+scale = Vector2(0.48134, 0.48134)
+texture = ExtResource("4_u5q53")
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/RulesButton" to="." method="_on_rules_button_pressed"]
+[connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cs3af0croqqp5"]
+[gd_scene load_steps=33 format=3 uid="uid://cs3af0croqqp5"]
 
 [ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
 [ext_resource type="Texture2D" uid="uid://yirqjuylji5j" path="res://assets/images/enemies/grey_shark.png" id="24_son3k"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/shop/display_item.tscn" id="25_4bks0"]
+[ext_resource type="Texture2D" uid="uid://dl2mb1sk8mrg6" path="res://assets/images/main_character.png" id="26_pwaxy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0otca"]
 resource_local_to_scene = true
@@ -157,6 +158,12 @@ offset_top = 22.0
 offset_right = 152.0
 offset_bottom = 62.0
 text = "$Temp"
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(960, 488)
+scale = Vector2(0.422314, 0.422314)
+texture = ExtResource("26_pwaxy")
+flip_h = true
 
 [connection signal="purchased_item" from="." to="." method="remove_item"]
 [connection signal="purchased_item" from="." to="Control" method="_on_shop_purchased_item"]
