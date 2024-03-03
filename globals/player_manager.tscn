@@ -9,4 +9,4 @@
 
 [node name="PlayerManager" type="Node"]
 script = ExtResource("1_hrwq6")
-upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("2_hwtb2"), ExtResource("3_ae5um"), ExtResource("4_0jfox"), ExtResource("5_xu2rp"), ExtResource("6_3i0he")])
+starting_upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("4_0jfox"), ExtResource("5_xu2rp"), ExtResource("2_hwtb2"), ExtResource("6_3i0he"), ExtResource("3_ae5um")])

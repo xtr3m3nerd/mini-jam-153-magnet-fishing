@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdmxdo16tb867"]
+[gd_scene load_steps=3 format=3 uid="uid://bdmxdo16tb867"]
 
 [ext_resource type="Script" path="res://globals/pause_manager.gd" id="1_b58c0"]
+[ext_resource type="PackedScene" uid="uid://capb0aa54sbax" path="res://menu/prefabs/volume_controls.tscn" id="2_6ikux"]
 
 [node name="PauseManager" type="Node"]
 process_mode = 3
@@ -24,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.207843)
+color = Color(0, 0, 0, 0.513726)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/PauseScreen/Background"]
 layout_mode = 1
@@ -62,3 +63,31 @@ layout_mode = 2
 text = "Press (esc/start) to continue"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VolumeControls" parent="CanvasLayer/PauseScreen/Background" instance=ExtResource("2_6ikux")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -112.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -56.0
+offset_right = 120.0
+offset_bottom = -25.0
+grow_vertical = 0
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/PauseScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

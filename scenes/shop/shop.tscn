@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cs3af0croqqp5"]
+[gd_scene load_steps=40 format=3 uid="uid://cs3af0croqqp5"]
 
 [ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
@@ -21,10 +21,15 @@
 [ext_resource type="Resource" uid="uid://cf8g450kwm1s8" path="res://resources/upgrades/strength_upgrade_1.tres" id="19_j524v"]
 [ext_resource type="Resource" uid="uid://djqowu5pgw3q8" path="res://resources/upgrades/strength_upgrade_2.tres" id="20_lyikr"]
 [ext_resource type="Resource" uid="uid://cs73gnhyku82q" path="res://resources/upgrades/strength_upgrade_3.tres" id="21_pp2o6"]
+[ext_resource type="Texture2D" uid="uid://diuarse8ktnv6" path="res://assets/images/shop/shop_background.png" id="22_d1uoy"]
 [ext_resource type="Script" path="res://scenes/shop/shop_ui.gd" id="22_kaouo"]
+[ext_resource type="Texture2D" uid="uid://c1ocaer4nq11y" path="res://assets/images/shop/shopkeeper.png" id="23_lggdm"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
-[ext_resource type="Texture2D" uid="uid://yirqjuylji5j" path="res://assets/images/enemies/grey_shark.png" id="24_son3k"]
+[ext_resource type="Texture2D" uid="uid://dfwl7l0j7ykq5" path="res://assets/images/shop/display_case_empty.png" id="24_jw7vh"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/shop/display_item.tscn" id="25_4bks0"]
+[ext_resource type="Texture2D" uid="uid://dl2mb1sk8mrg6" path="res://assets/images/main_character.png" id="26_pwaxy"]
+[ext_resource type="Texture2D" uid="uid://cunlrk6pnbwns" path="res://assets/images/shop/shop_back_to_cave_sign.png" id="27_xd0oi"]
+[ext_resource type="Texture2D" uid="uid://xi65fvv20mgj" path="res://assets/images/shop/display_case_glass.png" id="29_jtlug"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0otca"]
 resource_local_to_scene = true
@@ -68,34 +73,126 @@ shader_parameter/flashColor = Color(1, 1, 1, 1)
 shader_parameter/HovState = 0.0
 shader_parameter/outlineColHov = Color(0, 0, 0, 1)
 
-[node name="Shop" type="Node2D"]
+[sub_resource type="Animation" id="Animation_5vnl0"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shopkeep:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(462, 302), Vector2(479, 296), Vector2(496, 302), Vector2(479, 296), Vector2(462, 302)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCharacter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 5, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(943, 497.5), Vector2(943, 500), Vector2(943, 490), Vector2(943, 497.5), Vector2(943, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_v4dhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shopkeep:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(462, 302)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCharacter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(943, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r53p0"]
+_data = {
+"RESET": SubResource("Animation_v4dhe"),
+"idle": SubResource("Animation_5vnl0")
+}
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_x10um")
 upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("2_7u1p1"), ExtResource("3_ymubp"), ExtResource("4_34urf"), ExtResource("5_t7inx"), ExtResource("6_eip7q"), ExtResource("7_lsc3r"), ExtResource("8_ir08t"), ExtResource("9_jtam1"), ExtResource("10_ywmii"), ExtResource("11_qs4l8"), ExtResource("12_viodb"), ExtResource("13_g4gbv"), ExtResource("14_7hhlu"), ExtResource("15_2uxyy"), ExtResource("16_07d6a"), ExtResource("17_ed7ho"), ExtResource("18_4f2kw"), ExtResource("19_j524v"), ExtResource("20_lyikr"), ExtResource("21_pp2o6")])
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("22_d1uoy")
+
+[node name="Shopkeep" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(462, 302)
+scale = Vector2(0.422314, 0.422314)
+texture = ExtResource("23_lggdm")
+
+[node name="DisplayCase" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("24_jw7vh")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 script = ExtResource("22_kaouo")
 
 [node name="ContinueButton" type="TextureButton" parent="Control"]
 material = SubResource("ShaderMaterial_0otca")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 986.0
-offset_top = 122.0
-offset_right = 2186.0
-offset_bottom = 1322.0
-scale = Vector2(0.1, 0.1)
+offset_left = 850.0
+offset_top = 43.0
+offset_right = 1203.0
+offset_bottom = 396.0
 focus_neighbor_left = NodePath("../HBoxContainer/DisplayItem5")
 focus_neighbor_bottom = NodePath("../HBoxContainer/DisplayItem5")
 focus_previous = NodePath("../HBoxContainer/DisplayItem5")
-texture_normal = ExtResource("24_son3k")
+texture_normal = ExtResource("27_xd0oi")
 stretch_mode = 5
-flip_h = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -105,10 +202,15 @@ offset_top = 448.0
 offset_right = 746.0
 offset_bottom = 548.0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="DisplayItem" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
 material = SubResource("ShaderMaterial_l7sbl")
 layout_mode = 2
+offset_left = 43.0
+offset_top = -34.0
+offset_right = 143.0
+offset_bottom = 66.0
 focus_neighbor_right = NodePath("../DisplayItem2")
 focus_next = NodePath("../DisplayItem2")
 displayed_upgrade = ExtResource("2_7u1p1")
@@ -116,6 +218,10 @@ displayed_upgrade = ExtResource("2_7u1p1")
 [node name="DisplayItem2" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
 material = SubResource("ShaderMaterial_id6lm")
 layout_mode = 2
+offset_left = 142.0
+offset_top = -35.0
+offset_right = 242.0
+offset_bottom = 65.0
 focus_neighbor_left = NodePath("../DisplayItem")
 focus_neighbor_right = NodePath("../DisplayItem3")
 focus_next = NodePath("../DisplayItem3")
@@ -125,6 +231,10 @@ displayed_upgrade = ExtResource("6_eip7q")
 [node name="DisplayItem3" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
 material = SubResource("ShaderMaterial_36mue")
 layout_mode = 2
+offset_left = 247.0
+offset_top = -34.0
+offset_right = 347.0
+offset_bottom = 66.0
 focus_neighbor_left = NodePath("../DisplayItem2")
 focus_neighbor_right = NodePath("../DisplayItem4")
 focus_next = NodePath("../DisplayItem4")
@@ -134,6 +244,10 @@ displayed_upgrade = ExtResource("10_ywmii")
 [node name="DisplayItem4" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
 material = SubResource("ShaderMaterial_gkkjn")
 layout_mode = 2
+offset_left = 461.0
+offset_top = -35.0
+offset_right = 561.0
+offset_bottom = 65.0
 focus_neighbor_left = NodePath("../DisplayItem3")
 focus_neighbor_right = NodePath("../DisplayItem5")
 focus_next = NodePath("../DisplayItem5")
@@ -143,6 +257,10 @@ displayed_upgrade = ExtResource("18_4f2kw")
 [node name="DisplayItem5" parent="Control/HBoxContainer" instance=ExtResource("25_4bks0")]
 material = SubResource("ShaderMaterial_lbemj")
 layout_mode = 2
+offset_left = 574.0
+offset_top = -34.0
+offset_right = 674.0
+offset_bottom = 66.0
 focus_neighbor_left = NodePath("../DisplayItem4")
 focus_neighbor_top = NodePath("../../ContinueButton")
 focus_neighbor_right = NodePath("../../ContinueButton")
@@ -150,13 +268,43 @@ focus_next = NodePath("../../ContinueButton")
 focus_previous = NodePath("../DisplayItem4")
 displayed_upgrade = ExtResource("14_7hhlu")
 
-[node name="DisplayCurrentMoney" type="RichTextLabel" parent="Control"]
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 22.0
-offset_right = 152.0
-offset_bottom = 62.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 124.0
+offset_bottom = 64.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DisplayCurrentMoney" type="Label" parent="Control/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
 text = "$Temp"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayCaseGlass" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("29_jtlug")
+
+[node name="MainCharacter" type="Sprite2D" parent="."]
+position = Vector2(943, 500)
+scale = Vector2(0.422314, 0.42064)
+texture = ExtResource("26_pwaxy")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r53p0")
+}
+autoplay = "idle"
 
 [connection signal="purchased_item" from="." to="." method="remove_item"]
 [connection signal="purchased_item" from="." to="Control" method="_on_shop_purchased_item"]
