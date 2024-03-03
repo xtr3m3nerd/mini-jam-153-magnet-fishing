@@ -2,6 +2,7 @@ class_name PendulumBody2D
 extends CharacterBody2D
  
 @onready var magnetic_zone : Area2D = $MagneticZone
+@onready var magnet_vfx = $MagnetVFX
 
 signal attract()
 signal detach()
@@ -28,6 +29,7 @@ func _ready():
 	length = anchor.distance_to(global_position)
 	angular_momentum = mass * angular_velocity * length
 	
+	var base_stength = magnetic_zone.magnetic_strength
 	for upgrade in PlayerManager.upgrades:
 		match upgrade.type:
 			Upgrade.Types.LENGTH:
@@ -42,6 +44,7 @@ func _ready():
 			Upgrade.Types.STRENGTH:
 				if upgrade.value > magnetic_zone.magnetic_strength:
 					magnetic_zone.magnetic_strength = upgrade.value
+					magnet_vfx.speed_scale = magnetic_zone.magnetic_strength / base_stength
 			Upgrade.Types.FLASHLIGHT:
 				pass
 	
@@ -113,9 +116,11 @@ func _on_magnetic_zone_attract():
 	var sound_effect = load("res://assets/sfx/attract.wav")
 	sound_player.stream = sound_effect
 	sound_player.play()
+	magnet_vfx.emitting = true
 
 func _on_magnetic_zone_detach():
 	detach.emit()
 	var sound_effect = load("res://assets/sfx/magnetoff.wav")
 	sound_player.stream = sound_effect
 	sound_player.play()
+	magnet_vfx.emitting = false

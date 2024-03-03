@@ -1,8 +1,65 @@
-[gd_scene load_steps=9 format=3 uid="uid://b86nc1tyynsk8"]
+[gd_scene load_steps=21 format=3 uid="uid://b86nc1tyynsk8"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player/magnet.gd" id="1_qvp27"]
+[ext_resource type="Texture2D" uid="uid://cfunkvigljhhv" path="res://assets/images/circlething.png" id="2_bjupj"]
 [ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_yw37o"]
 [ext_resource type="Script" path="res://scenes/prefabs/player/magnetic_zone.gd" id="3_pudvg"]
+
+[sub_resource type="Curve" id="Curve_m7c2y"]
+_data = [Vector2(0, 0.0778031), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0963958), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c3ejx"]
+curve = SubResource("Curve_m7c2y")
+
+[sub_resource type="Gradient" id="Gradient_c02nm"]
+offsets = PackedFloat32Array(0.00165017, 1)
+colors = PackedColorArray(1, 0.894011, 0.467398, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_578bd"]
+gradient = SubResource("Gradient_c02nm")
+
+[sub_resource type="Curve" id="Curve_mnfqe"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 15.5606), 0.0, 0.0, 0, 0, Vector2(0.98265, 8.12357), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_mum4d"]
+curve = SubResource("Curve_mnfqe")
+
+[sub_resource type="Curve" id="Curve_3xiq3"]
+_data = [Vector2(0, 0.00715089), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.00715089), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4g4ud"]
+curve = SubResource("Curve_3xiq3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_io6hl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 50, 1)
+angle_min = -417.6
+angle_max = 313.2
+direction = Vector3(0, -1, 0)
+angular_velocity_min = -147.21
+angular_velocity_max = 313.69
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 20.0
+linear_accel_max = 100.0
+linear_accel_curve = SubResource("CurveTexture_mum4d")
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_4g4ud")
+color_initial_ramp = SubResource("GradientTexture1D_578bd")
+alpha_curve = SubResource("CurveTexture_c3ejx")
+
+[sub_resource type="Gradient" id="Gradient_i7p1m"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x0m1s"]
+gradient = SubResource("Gradient_i7p1m")
+width = 10
+height = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ingdc"]
 radius = 16.0
@@ -25,6 +82,22 @@ radius = 112.894
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_qvp27")
+
+[node name="MagnetVFX" type="GPUParticles2D" parent="."]
+position = Vector2(0, 157)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_io6hl")
+texture = SubResource("GradientTexture2D_x0m1s")
+lifetime = 0.5
+explosiveness = 0.1
+randomness = 0.35
+local_coords = true
+
+[node name="Circlething" type="Sprite2D" parent="MagnetVFX"]
+visible = false
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_bjupj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 14)

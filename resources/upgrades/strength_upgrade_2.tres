@@ -9,5 +9,5 @@ price = 75
 name = "Strength 2"
 level = 2
 type = 3
-value = 800.0
+value = 4000.0
 texture = ExtResource("2_akbfm")
