@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhrogtdvywvb"]
+[gd_scene load_steps=13 format=3 uid="uid://dhrogtdvywvb"]
 
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="1_718on"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_t3njj"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="2_mwyy5"]
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="3_n2dlf"]
 [ext_resource type="Script" path="res://scenes/collection_zone.gd" id="4_k1ovo"]
-[ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/prefabs/pickup.tscn" id="5_vewf0"]
-[ext_resource type="Resource" uid="uid://c23h12nqkfe43" path="res://resources/pickups/sword_pickup.tres" id="6_jdi6p"]
+[ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="6_4yamr"]
+[ext_resource type="PackedScene" uid="uid://cfca407ntysji" path="res://scenes/prefabs/pickups/mcguffin_pickup.tscn" id="7_30khn"]
+[ext_resource type="PackedScene" uid="uid://cvbqchkj3i03q" path="res://scenes/prefabs/pickups/nut_pickup.tscn" id="8_w4b75"]
+[ext_resource type="PackedScene" uid="uid://bia8x235ke6x2" path="res://scenes/prefabs/pickups/shield_pickup.tscn" id="9_uddnx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
 texture = ExtResource("3_n2dlf")
@@ -43,9 +46,10 @@ sources/0 = SubResource("TileSetAtlasSource_xcba5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2qoq"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_t3njj")
 
 [node name="DepthFollowCamera" parent="." instance=ExtResource("1_718on")]
-position = Vector2(760, 226)
+position = Vector2(758, 2235)
 zoom = Vector2(2, 2)
 
 [node name="Rope" parent="." instance=ExtResource("2_mwyy5")]
@@ -67,8 +71,19 @@ script = ExtResource("4_k1ovo")
 scale = Vector2(0.400486, 1.07963)
 shape = SubResource("RectangleShape2D_k2qoq")
 
-[node name="Pickup" parent="." instance=ExtResource("5_vewf0")]
-position = Vector2(869, 454)
-pickup = ExtResource("6_jdi6p")
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Sword" parent="Pickups" instance=ExtResource("6_4yamr")]
+position = Vector2(933, 468)
+rotation = -1.80476
+
+[node name="McGuffin" parent="Pickups" instance=ExtResource("7_30khn")]
+position = Vector2(848, 457)
+
+[node name="Bolt" parent="Pickups" instance=ExtResource("8_w4b75")]
+position = Vector2(775, 465)
+
+[node name="Shield" parent="Pickups" instance=ExtResource("9_uddnx")]
+position = Vector2(724, 457)
 
 [connection signal="body_entered" from="CollectionZone" to="CollectionZone" method="_on_body_entered"]

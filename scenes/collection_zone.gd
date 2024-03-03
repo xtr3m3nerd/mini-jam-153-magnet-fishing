@@ -10,9 +10,15 @@ func _on_body_entered(body):
 			if magnet_object.is_in_group("pickup"):
 				collected_pickups.append(magnet_object.pickup)
 				PlayerManager.money += magnet_object.pickup.value
+				
+				
+				PickupManager.picked_up_ids.append(magnet_object.get_index())
 				#magnet_object.queue_free()
 	
 	PlayerManager.pickups.append_array(collected_pickups)
+	
+	
+	
 	collected_pickups = []
 	
 	call_deferred("change_to_shop")
