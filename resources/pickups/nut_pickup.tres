@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_0jkip")
-weight = 1.0
+weight = 0.2
 value = 10

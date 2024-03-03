@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_yolem")
 weight = 1.0
-value = 10
+value = 100

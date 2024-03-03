@@ -7,7 +7,6 @@ extends Control
 @export var sliders_with_sounds: Array[Slider] = []
 
 @onready var game_scene: PackedScene = SceneManager.level_scene
-@export var credit_scene: PackedScene = preload("res://menu/credits_menu.tscn")
 @export var rules_scene: PackedScene = preload("res://menu/rules.tscn")
 
 func _ready():
@@ -30,8 +29,8 @@ func _on_play_button_pressed():
 
 
 func _on_credits_button_pressed():
-	var credits = credit_scene.instantiate()
-	add_child(credits)
+	SceneManager.change_to_credits()
+
 
 
 func _on_exit_button_pressed():

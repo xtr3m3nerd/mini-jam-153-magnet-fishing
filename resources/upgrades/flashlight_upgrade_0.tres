@@ -9,4 +9,5 @@ price = 0
 name = "Flashlight 0"
 level = 0
 type = 4
+value = 0.0
 texture = ExtResource("2_bd4wl")
