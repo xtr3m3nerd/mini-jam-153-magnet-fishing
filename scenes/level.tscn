@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://csahfpk1om6he"]
+[gd_scene load_steps=11 format=3 uid="uid://csahfpk1om6he"]
 
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="1_718on"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_t3njj"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="2_mwyy5"]
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="3_n2dlf"]
 [ext_resource type="Script" path="res://scenes/collection_zone.gd" id="4_k1ovo"]
@@ -43,6 +44,7 @@ sources/0 = SubResource("TileSetAtlasSource_xcba5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2qoq"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_t3njj")
 
 [node name="DepthFollowCamera" parent="." instance=ExtResource("1_718on")]
 position = Vector2(760, 226)
@@ -67,7 +69,9 @@ script = ExtResource("4_k1ovo")
 scale = Vector2(0.400486, 1.07963)
 shape = SubResource("RectangleShape2D_k2qoq")
 
-[node name="Pickup" parent="." instance=ExtResource("5_vewf0")]
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Pickup" parent="Pickups" instance=ExtResource("5_vewf0")]
 position = Vector2(869, 454)
 pickup = ExtResource("6_jdi6p")
 
