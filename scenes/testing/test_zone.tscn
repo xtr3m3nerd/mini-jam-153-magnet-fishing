@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu16728vtuckk"]
+[gd_scene load_steps=8 format=3 uid="uid://cg87jgoat87v"]
 
 [ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="1_2mphi"]
 [ext_resource type="PackedScene" uid="uid://clc5mjwjkcjp1" path="res://scenes/prefabs/pickup.tscn" id="2_p57a4"]
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="3_b1a5v"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/rope.tscn" id="4_xnrau"]
+[ext_resource type="PackedScene" uid="uid://dm7sl8slnpt4" path="res://scenes/prefabs/enemy.tscn" id="5_oqbo7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_idpbx"]
 texture = ExtResource("1_2mphi")
@@ -59,4 +60,18 @@ position = Vector2(760, 226)
 zoom = Vector2(2, 2)
 
 [node name="Rope" parent="." instance=ExtResource("4_xnrau")]
-position = Vector2(510, 255)
+position = Vector2(769, 136)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(55, 15)
+points = PackedVector2Array(365, 186, 427, 224, 442, 294, 265.088, 324.895, 198.404, 275.455, 225.571, 191.708, 262.618, 162.448)
+width = 2.0
+default_color = Color(1, 1, 1, 0.992157)
+
+[node name="Enemy" parent="Line2D" node_paths=PackedStringArray("explore_path") instance=ExtResource("5_oqbo7")]
+position = Vector2(306.25, 262.338)
+explore_path = NodePath("..")
+wait_points = {
+2: 2.0,
+3: 5.0
+}

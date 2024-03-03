@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b86nc1tyynsk8"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/magnet.gd" id="1_h51o2"]
-[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_i04sg"]
+[ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="2_uqlj4"]
 [ext_resource type="Script" path="res://scenes/prefabs/magnetic_zone.gd" id="3_682o7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ingdc"]
@@ -30,7 +30,7 @@ script = ExtResource("1_h51o2")
 position = Vector2(0, 14)
 rotation = -3.14159
 scale = Vector2(0.08, 0.08)
-texture = ExtResource("2_i04sg")
+texture = ExtResource("2_uqlj4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 24)
@@ -63,3 +63,6 @@ shape = SubResource("CircleShape2D_7k1av")
 [node name="DirectionalPull" type="CollisionPolygon2D" parent="MagneticZone"]
 position = Vector2(0, -26)
 polygon = PackedVector2Array(-150, 200, -15, 0, 15, 0, 150, 200)
+
+[connection signal="attract" from="MagneticZone" to="." method="_on_magnetic_zone_attract"]
+[connection signal="detach" from="MagneticZone" to="." method="_on_magnetic_zone_detach"]
