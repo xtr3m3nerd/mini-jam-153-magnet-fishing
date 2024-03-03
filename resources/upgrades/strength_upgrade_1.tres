@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cf8g450kwm1s8"]
 
 [ext_resource type="Script" path="res://resources/classes/upgrade.gd" id="1_284mp"]
-[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/terrain/rock_red.png" id="2_t30va"]
+[ext_resource type="Texture2D" uid="uid://cn18mo2adptvl" path="res://assets/images/upgrades/bronze_dumbell.png" id="2_p6uej"]
 
 [resource]
 script = ExtResource("1_284mp")
@@ -10,4 +10,4 @@ name = "Strength 1"
 level = 1
 type = 3
 value = 400.0
-texture = ExtResource("2_t30va")
+texture = ExtResource("2_p6uej")

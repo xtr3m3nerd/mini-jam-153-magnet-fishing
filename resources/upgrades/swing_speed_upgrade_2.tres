@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://ky77gcnm43g0"]
 
 [ext_resource type="Script" path="res://resources/classes/upgrade.gd" id="1_o1fcx"]
-[ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/terrain/rock_brown.png" id="2_f1t0r"]
+[ext_resource type="Texture2D" uid="uid://cmcywp6hqyovn" path="res://assets/images/upgrades/silver_swing.png" id="2_pjfca"]
 
 [resource]
 script = ExtResource("1_o1fcx")
@@ -10,4 +10,4 @@ name = "Swing Speed 2"
 level = 2
 type = 1
 value = 300.0
-texture = ExtResource("2_f1t0r")
+texture = ExtResource("2_pjfca")

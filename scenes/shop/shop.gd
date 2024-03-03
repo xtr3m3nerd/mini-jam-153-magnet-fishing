@@ -8,29 +8,33 @@ var displayed_upgrades = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print(PlayerManager.upgrades)
+	print(upgrades.size())
 	for upgrade_display in upgrade_displays:
 		
 		#find which upgrade type and level based on player's current upgrades
-		var upgrade_level = 0
-		var upgrade_type = Upgrade.Types.LENGTH
+		var type = upgrade_display.displayed_upgrade.type
+		var level = upgrade_display.displayed_upgrade.level
+		
+		
 		for upgrade in PlayerManager.upgrades:
-			if(upgrade.type == upgrade_display.displayed_upgrade.type):
-				upgrade_type = upgrade.type
-				
-				if(upgrade.level > upgrade_level):
-					upgrade_level = upgrade.level
-					
-		upgrade_level += 1
+			if(upgrade.type == type):
+				if(upgrade.level > level):
+					level = upgrade.level
+		
+		level += 1
 		
 		#find correct upgrade from list, and apply it to upgrade_display
+		var new_upgrade = null
 		for upgrade in upgrades:
-			if(upgrade.type == upgrade_type and 
-			upgrade.level == upgrade_level):
-				upgrade_display.displayed_upgrade = upgrade
-				upgrade_display.update_display()
-				
+			if upgrade.type == type and upgrade.level == level:
+				new_upgrade = upgrade
+				break
 		
-		if(upgrade_level <= 3): #hardcoded max level ;-;
+		print(new_upgrade)
+		if new_upgrade != null:
+			upgrade_display.displayed_upgrade = new_upgrade
+			upgrade_display.update_display()
 			upgrade_display.disabled = false
 			upgrade_display.text.show()
 		else:
@@ -39,15 +43,8 @@ func _ready():
 			upgrade_display.text.hide()
 
 
-
-	
-	
-	
-	pass # Replace with function body.
-	
-	
 func remove_item(item : Upgrade):
-	upgrades.erase(item)
+	#upgrades.erase(item)
 	
 	for upgrade_display in upgrade_displays:
 		if upgrade_display.displayed_upgrade.type == item.type:
