@@ -58,6 +58,7 @@ func _physics_process(delta):
 	
 	var corrected_length = global_position.distance_to(anchor)
 	length = corrected_length
+	rotation = angle
 
 func update_anchor(new_anchor: Vector2):
 	anchor = new_anchor
