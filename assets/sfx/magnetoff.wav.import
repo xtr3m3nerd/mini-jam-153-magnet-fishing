@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://pbk5qqjnn1rl"
-path="res://.godot/imported/magnetoff.wav-9a3cac245252599c44a3e966e85809e5.sample"
+path="res://.godot/imported/magnetoff.wav-75f343924829b28f0d6468d7534e8a3c.sample"
 
 [deps]
 
-source_file="res://assets/music/magnetoff.wav"
-dest_files=["res://.godot/imported/magnetoff.wav-9a3cac245252599c44a3e966e85809e5.sample"]
+source_file="res://assets/sfx/magnetoff.wav"
+dest_files=["res://.godot/imported/magnetoff.wav-75f343924829b28f0d6468d7534e8a3c.sample"]
 
 [params]
 

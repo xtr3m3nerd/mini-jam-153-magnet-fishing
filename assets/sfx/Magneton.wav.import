@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cci24t2kni6y"
-path="res://.godot/imported/Magneton.wav-f2d7e8f00d5043f5cf11e01eac54afaf.sample"
+path="res://.godot/imported/Magneton.wav-b433ae2d0277e322c511089f3fb18f3f.sample"
 
 [deps]
 
-source_file="res://assets/music/Magneton.wav"
-dest_files=["res://.godot/imported/Magneton.wav-f2d7e8f00d5043f5cf11e01eac54afaf.sample"]
+source_file="res://assets/sfx/Magneton.wav"
+dest_files=["res://.godot/imported/Magneton.wav-b433ae2d0277e322c511089f3fb18f3f.sample"]
 
 [params]
 
