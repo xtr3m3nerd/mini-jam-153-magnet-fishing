@@ -1,7 +1,56 @@
-[gd_scene format=3 uid="uid://dm7sl8slnpt4"]
+[gd_scene load_steps=5 format=3 uid="uid://dm7sl8slnpt4"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[ext_resource type="Texture2D" uid="uid://brj1ye55bkadx" path="res://assets/images/enemies/blue_shark.png" id="1_2kvv4"]
+[ext_resource type="Script" path="res://scenes/prefabs/enemy.gd" id="1_cnx4b"]
+[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="3_keynw"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0w4f"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_cnx4b")
+
+[node name="TargetLocator" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_keynw")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Graphics"]
+scale = Vector2(0.030896, 0.030896)
+texture = ExtResource("1_2kvv4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_t0w4f")
+
+[node name="LatchCheckRay" type="RayCast2D" parent="."]
+target_position = Vector2(25, 0)
+collision_mask = 6
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StateLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "IDLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0, 1, 1, 1)
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
