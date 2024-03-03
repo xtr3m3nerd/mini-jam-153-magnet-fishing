@@ -15,7 +15,7 @@ func _on_body_entered(body):
 	PlayerManager.pickups.append_array(collected_pickups)
 	collected_pickups = []
 	
-	print(PlayerManager.money)
+	get_tree().change_scene_to_file("res://scenes/shop.tscn")
 	
 	
 	

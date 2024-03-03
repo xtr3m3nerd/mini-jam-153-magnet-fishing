@@ -70,3 +70,8 @@ func purchase_item(item : Upgrade):
 	else:
 		#TODO: Play can't purchase sound
 		pass
+
+
+func _on_continue_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	pass # Replace with function body.
