@@ -16,7 +16,7 @@ texture = ExtResource("2_vmrvn")
 texture_mode = 1
 
 [node name="Magnet" parent="." instance=ExtResource("1_64nh5")]
-position = Vector2(0, 100)
+position = Vector2(0, 151)
 
 [node name="UnstickChecker" type="Area2D" parent="."]
 collision_layer = 0
