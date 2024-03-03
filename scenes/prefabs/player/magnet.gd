@@ -24,6 +24,7 @@ var used_length := 0.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sound_player := AudioStreamPlayer.new()
+var loop_player := AudioStreamPlayer.new()
 
 func _ready():
 	length = anchor.distance_to(global_position)
@@ -49,6 +50,7 @@ func _ready():
 				pass
 	
 	add_child(sound_player)
+	add_child(loop_player)
 
 func _process(delta):
 	var change = Input.get_axis("move_up", "move_down")
@@ -117,9 +119,13 @@ func _on_magnetic_zone_attract():
 	sound_player.stream = sound_effect
 	sound_player.play()
 	magnet_vfx.emitting = true
+	var loop_effect = load("res://assets/sfx/loopy.wav")
+	loop_player.stream = loop_effect
+	loop_player.play()
 
 func _on_magnetic_zone_detach():
 	detach.emit()
+	loop_player.stop()
 	var sound_effect = load("res://assets/sfx/magnetoff.wav")
 	sound_player.stream = sound_effect
 	sound_player.play()
