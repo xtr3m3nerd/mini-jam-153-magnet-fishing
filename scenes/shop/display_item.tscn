@@ -31,6 +31,13 @@ stretch_mode = 5
 script = ExtResource("1_m0dg3")
 displayed_upgrade = ExtResource("4_fmtub")
 
+[node name="Platform" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_n0op1")
+position = Vector2(49, 67)
+scale = Vector2(0.183, 0.2)
+texture = ExtResource("5_l3ggs")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 clip_contents = false
 layout_mode = 1
@@ -45,13 +52,6 @@ grow_horizontal = 2
 bbcode_enabled = true
 text = "[center]$Temp[/center]"
 tab_size = 3
-
-[node name="Platform" type="Sprite2D" parent="."]
-z_index = -1
-material = SubResource("ShaderMaterial_n0op1")
-position = Vector2(49, 67)
-scale = Vector2(0.183, 0.2)
-texture = ExtResource("5_l3ggs")
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 signal purchased_item(item)
 
@@ -8,8 +8,6 @@ var displayed_upgrades = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(PlayerManager.upgrades)
-	print(upgrades.size())
 	for upgrade_display in upgrade_displays:
 		
 		#find which upgrade type and level based on player's current upgrades
@@ -31,7 +29,6 @@ func _ready():
 				new_upgrade = upgrade
 				break
 		
-		print(new_upgrade)
 		if new_upgrade != null:
 			upgrade_display.displayed_upgrade = new_upgrade
 			upgrade_display.update_display()

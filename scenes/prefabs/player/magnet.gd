@@ -27,7 +27,6 @@ func _ready():
 	length = anchor.distance_to(global_position)
 	angular_momentum = mass * angular_velocity * length
 	
-	print(PlayerManager.upgrades)
 	for upgrade in PlayerManager.upgrades:
 		match upgrade.type:
 			Upgrade.Types.LENGTH:
