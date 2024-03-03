@@ -1,6 +1,4 @@
-extends Node2D
-
-class_name Player
+extends Node
 
 var pickups : Array[Pickup] = []
 @export var upgrades : Array[Upgrade] = []
