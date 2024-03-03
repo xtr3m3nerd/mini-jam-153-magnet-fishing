@@ -2,31 +2,14 @@ extends Node2D
 
 const TILE_SIZE = 32
 
-@export var grow_speed = 50.0
-@export var length = 64.0:
-	set(value):
-		if value != length:
-			length = value
-			update_length(value)
-
 var points: PackedVector2Array = []
 
-@onready var anchor_point = $AnchorPoint
-@onready var magnet = $Magnet
 @onready var line_2d = $Line2D
-
-@export var num_springs: int = 1
-var springs = []
+@onready var magnet = $Magnet
 
 func _ready():
-	for i in num_springs:
-		var spring = DampedSpringJoint2D.new()
-		anchor_point.add_child(spring)
-		spring.stiffness = 64
-		spring.damping = 1.0
-		springs.append(spring)
 	points.append(global_position)
-	update_length(length)
+	magnet.set_starting(global_position, magnet.global_position)
 
 func _process(_delta):
 	var all_points = points.duplicate()
@@ -35,10 +18,7 @@ func _process(_delta):
 		all_points[i] = all_points[i] - global_position
 	line_2d.points = all_points
 
-func _physics_process(delta):
-	var direction = Input.get_axis("move_up", "move_down")
-	length += direction * grow_speed * delta
-	
+func _physics_process(_delta):
 	if points.size() < 1:
 		return
 	
@@ -91,9 +71,6 @@ func sort_by_closeness(array: Array, pos: Vector2) -> Array:
 	array.sort_custom(func(a, b): return (a - pos).length_squared() < (b - pos).length_squared())
 	return array
 
-func update_length(_value: float):
-	update_anchor()
-
 func add_point(point: Vector2):
 	points.append(point)
 	update_anchor()
@@ -103,16 +80,4 @@ func remove_point():
 	update_anchor()
 	
 func update_anchor():
-	var current_length = 0.0
-	if points.size() > 1:
-		for i in points.size() - 1:
-			current_length += points[i].distance_to(points[i+1])
-	var remaining_length = length - current_length
-	# adjust anchor spring by remaining length
-	anchor_point.global_position = points[-1]
-	for spring in springs:
-		spring.length = remaining_length
-		spring.rest_length = remaining_length
-		spring.node_a = anchor_point.get_path()
-		spring.node_b = magnet.get_path()
-	
+	magnet.update_anchor(points[-1])

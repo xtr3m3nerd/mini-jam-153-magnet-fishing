@@ -31,18 +31,12 @@ layer_0/tile_data = PackedInt32Array(786441, 65536, 0, 786442, 65536, 0, 786443,
 
 [node name="Pickup" parent="." instance=ExtResource("2_p57a4")]
 position = Vector2(684, 513)
-collision_layer = 2
-collision_mask = 3
 
 [node name="Pickup2" parent="." instance=ExtResource("2_p57a4")]
 position = Vector2(784, 509)
-collision_layer = 2
-collision_mask = 3
 
 [node name="Pickup3" parent="." instance=ExtResource("2_p57a4")]
 position = Vector2(893, 508)
-collision_layer = 2
-collision_mask = 3
 
 [node name="DepthFollowCamera" parent="." instance=ExtResource("3_b1a5v")]
 position = Vector2(760, 226)
