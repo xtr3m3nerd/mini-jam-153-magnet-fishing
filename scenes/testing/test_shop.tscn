@@ -1,13 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=23 format=3 uid="uid://h0e86e3416os"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
 [ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop.gd" id="1_omqba"]
+[ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/length_upgrade_1.tres" id="2_r417v"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop_ui.gd" id="2_t4sl0"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="4_yibra"]
 [ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/length_upgrade_2.tres" id="6_ktn3d"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="6_kw4l7"]
-[ext_resource type="Resource" uid="uid://w3csfe0m5pdh" path="res://resources/speed_upgrade_1.tres" id="7_16lvj"]
+[ext_resource type="Resource" uid="uid://w3csfe0m5pdh" path="res://resources/swing_speed_upgrade_1.tres" id="7_16lvj"]
+[ext_resource type="Resource" uid="uid://b730mmgm56u4w" path="res://resources/depth_speed_upgrade_1.tres" id="8_niqmf"]
+[ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/length_upgrade_0.tres" id="9_m01e2"]
+[ext_resource type="Resource" uid="uid://coa2xa1as87cp" path="res://resources/flashlight_upgrade_1.tres" id="10_6dnla"]
+[ext_resource type="Resource" uid="uid://bqtox6ctv87sa" path="res://resources/swing_speed_upgrade_0.tres" id="10_wiw67"]
+[ext_resource type="Resource" uid="uid://csiqft6sa85i0" path="res://resources/depth_speed_upgrade_0.tres" id="11_uayjm"]
+[ext_resource type="Resource" uid="uid://cf8g450kwm1s8" path="res://resources/strength_upgrade_1.tres" id="12_6kbxg"]
+[ext_resource type="Resource" uid="uid://cnyv56dxic8y7" path="res://resources/flashlight_upgrade_0.tres" id="12_wvnbc"]
+[ext_resource type="Resource" uid="uid://bqjd8goxb6mj8" path="res://resources/strength_upgrade_0.tres" id="13_frk3n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l7sbl"]
 resource_local_to_scene = true
@@ -44,15 +53,9 @@ shader_parameter/flashColor = Color(1, 1, 1, 1)
 shader_parameter/HovState = 0.0
 shader_parameter/outlineColHov = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_r0t6j"]
-resource_local_to_scene = true
-shader = ExtResource("6_kw4l7")
-shader_parameter/flashColor = Color(1, 1, 1, 1)
-shader_parameter/HovState = 0.0
-shader_parameter/outlineColHov = Color(0, 0, 0, 1)
-
 [node name="TestShop" type="Node2D"]
 script = ExtResource("1_omqba")
+upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("9_m01e2"), ExtResource("2_r417v"), ExtResource("6_ktn3d"), ExtResource("10_wiw67"), ExtResource("7_16lvj"), ExtResource("11_uayjm"), ExtResource("8_niqmf"), ExtResource("12_wvnbc"), ExtResource("10_6dnla"), ExtResource("13_frk3n"), ExtResource("12_6kbxg")])
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -76,28 +79,27 @@ theme_override_constants/separation = 10
 [node name="DisplayItem" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_l7sbl")
 layout_mode = 2
+displayed_upgrade = ExtResource("9_m01e2")
 
 [node name="DisplayItem2" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_id6lm")
 layout_mode = 2
-displayed_upgrade = ExtResource("6_ktn3d")
+displayed_upgrade = ExtResource("10_wiw67")
 
 [node name="DisplayItem3" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_36mue")
 layout_mode = 2
-displayed_upgrade = ExtResource("7_16lvj")
+displayed_upgrade = ExtResource("11_uayjm")
 
 [node name="DisplayItem4" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_gkkjn")
 layout_mode = 2
+displayed_upgrade = ExtResource("13_frk3n")
 
 [node name="DisplayItem5" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
 material = SubResource("ShaderMaterial_lbemj")
 layout_mode = 2
-
-[node name="DisplayItem6" parent="Control/HBoxContainer" instance=ExtResource("4_yibra")]
-material = SubResource("ShaderMaterial_r0t6j")
-layout_mode = 2
+displayed_upgrade = ExtResource("12_wvnbc")
 
 [node name="DisplayCurrentMoney" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -109,9 +111,11 @@ text = "$Temp"
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("1_3gmtx")
+upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("9_m01e2"), ExtResource("10_wiw67"), ExtResource("11_uayjm"), ExtResource("12_wvnbc"), ExtResource("13_frk3n")])
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(1073, 563)
 texture = ExtResource("1_6et8l")
 
+[connection signal="purchased_item" from="." to="." method="remove_item"]
 [connection signal="purchased_item" from="." to="Control" method="_on_test_shop_purchased_item"]

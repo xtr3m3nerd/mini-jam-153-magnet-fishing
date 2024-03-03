@@ -1,7 +1,9 @@
 extends Node2D
 
+class_name Player
+
 var pickups : Array[Pickup] = []
-var upgrades : Array[Upgrade] = []
+@export var upgrades : Array[Upgrade] = []
 
 var money : int = 1000
 var weight : float = 0.0

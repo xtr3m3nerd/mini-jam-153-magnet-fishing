@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_uun2t")
-price = 25
+price = 75
 name = "Length 2"
+level = 2
 type = 0
 texture = ExtResource("2_pd1s4")

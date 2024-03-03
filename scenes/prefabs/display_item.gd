@@ -6,11 +6,14 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	pass
+	
+func update_display():
 	var format_string = "[center]$%s[/center]"
 	$RichTextLabel.text = format_string % displayed_upgrade.price
 	
 	texture_normal = displayed_upgrade.texture
-	pass
 
 func _on_pressed():
 	
