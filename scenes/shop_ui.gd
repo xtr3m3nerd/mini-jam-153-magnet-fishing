@@ -9,7 +9,7 @@ func update_money_display():
 	$DisplayCurrentMoney.text = format_string % PlayerManager.money
 
 
-func _on_test_shop_purchased_item(item):
+func _on_shop_purchased_item(item):
 	update_money_display()
 	pass 
 

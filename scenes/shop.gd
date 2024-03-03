@@ -48,8 +48,6 @@ func _process(delta):
 	
 	
 func remove_item(item : Upgrade):
-	print(item.name)
-	
 	upgrades.erase(item)
 	
 	for upgrade_display in upgrade_displays:
