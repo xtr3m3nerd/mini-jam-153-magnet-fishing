@@ -75,7 +75,7 @@ fill_to = Vector2(0, 0)
 script = ExtResource("1_t3njj")
 
 [node name="CollectionFadeStartPoint" type="Node2D" parent="."]
-position = Vector2(687, 258)
+position = Vector2(668, 274)
 
 [node name="DepthFollowCamera" parent="." instance=ExtResource("1_718on")]
 position = Vector2(758, 2235)
