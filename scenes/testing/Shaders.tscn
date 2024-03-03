@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1s5grvsomgae"]
+[gd_scene load_steps=10 format=3 uid="uid://d1s5grvsomgae"]
 
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="1_4lapv"]
-[ext_resource type="Texture2D" uid="uid://dlhyyj8m4ny2i" path="res://assets/images/magnet/chain.png" id="2_k8nyl"]
+[ext_resource type="Texture2D" uid="uid://dlhyyj8m4ny2i" path="res://assets/images/chain.png" id="2_k8nyl"]
+[ext_resource type="Shader" path="res://assets/Shaders/Lava.gdshader" id="3_7jm80"]
+[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="4_map13"]
+[ext_resource type="Texture2D" uid="uid://cm70l8mjelgb0" path="res://assets/images/BayleeLava.png" id="5_0qjcb"]
+[ext_resource type="Texture2D" uid="uid://q37h0hf70021" path="res://assets/images/LavaDistortion.png" id="5_hv1gn"]
+[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/rock_red.png" id="7_3dhxs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fyi2m"]
 shader = ExtResource("1_4lapv")
@@ -9,8 +14,33 @@ shader_parameter/flashColor = Color(0.698039, 0.686275, 0.788235, 1)
 shader_parameter/HovState = 0.0
 shader_parameter/outlineColHov = Color(0.12549, 0.117647, 0.141176, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_107w8"]
+shader = ExtResource("3_7jm80")
+shader_parameter/lavaOpacity = 0.338
+shader_parameter/noiseScaleX = 0.009
+shader_parameter/noiseScaleY = 0.021
+shader_parameter/distortionScale = 100.0
+shader_parameter/distortionStrength = 80.0
+shader_parameter/surfaceHeight = -100.0
+shader_parameter/lavaGradient = ExtResource("5_0qjcb")
+shader_parameter/lavaDistortion = ExtResource("5_hv1gn")
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Selection Shader" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_fyi2m")
 texture = ExtResource("2_k8nyl")
+
+[node name="LavaMain" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_107w8")
+position = Vector2(142, 126)
+scale = Vector2(10.1094, 7.125)
+texture = ExtResource("4_map13")
+
+[node name="RockRed" type="Sprite2D" parent="."]
+position = Vector2(825, 34)
+texture = ExtResource("7_3dhxs")
+
+[node name="RockRed2" type="Sprite2D" parent="."]
+position = Vector2(-598, -10)
+texture = ExtResource("7_3dhxs")
