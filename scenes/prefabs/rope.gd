@@ -121,4 +121,8 @@ func remove_point():
 	update_anchor()
 	
 func update_anchor():
-	magnet.update_anchor(points[-1])
+	var used_length = 0.0
+	for i in points.size()-1:
+		used_length += points[i].distance_to(points[i+1])
+		
+	magnet.update_anchor(points[-1],used_length)

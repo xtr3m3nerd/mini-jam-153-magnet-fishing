@@ -7,5 +7,6 @@ class_name Upgrade
 
 enum Types {LENGTH, SWING_SPEED, DEPTH_SPEED, STRENGTH, FLASHLIGHT}
 @export var type : Types = Types.LENGTH
+@export var value: float = 0.0
 
 @export var texture : CompressedTexture2D

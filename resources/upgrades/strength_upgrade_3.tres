@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://cs73gnhyku82q"]
 
 [ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_sp7ry"]
-[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/rock_red.png" id="2_warpb"]
+[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/terrain/rock_red.png" id="2_warpb"]
 
 [resource]
 script = ExtResource("1_sp7ry")
@@ -9,4 +9,5 @@ price = 100
 name = "Strength 3"
 level = 3
 type = 3
+value = 1200.0
 texture = ExtResource("2_warpb")

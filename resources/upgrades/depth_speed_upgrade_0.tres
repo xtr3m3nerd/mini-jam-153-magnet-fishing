@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://csiqft6sa85i0"]
 
 [ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_xjv71"]
-[ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/rock_brown.png" id="2_1wfdi"]
+[ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/terrain/rock_brown.png" id="2_1wfdi"]
 
 [resource]
 script = ExtResource("1_xjv71")
@@ -9,4 +9,5 @@ price = 0
 name = "Depth Speed 0"
 level = 0
 type = 2
+value = 50.0
 texture = ExtResource("2_1wfdi")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://bcc8goivum5yw"]
 
 [ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_uun2t"]
-[ext_resource type="Texture2D" uid="uid://c2766rkwaivw6" path="res://assets/images/rock_deep_purple.png" id="2_pd1s4"]
+[ext_resource type="Texture2D" uid="uid://c2766rkwaivw6" path="res://assets/images/terrain/rock_deep_purple.png" id="2_pd1s4"]
 
 [resource]
 script = ExtResource("1_uun2t")
@@ -9,4 +9,5 @@ price = 75
 name = "Length 2"
 level = 2
 type = 0
+value = 8000.0
 texture = ExtResource("2_pd1s4")

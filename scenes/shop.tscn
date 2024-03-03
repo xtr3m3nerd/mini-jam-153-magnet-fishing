@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=32 format=3 uid="uid://cs3af0croqqp5"]
 
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
