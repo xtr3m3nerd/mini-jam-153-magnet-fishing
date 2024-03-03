@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfca407ntysji"]
+
+[ext_resource type="Script" path="res://scenes/prefabs/pickup.gd" id="1_32hgo"]
+[ext_resource type="Resource" uid="uid://b18qnri8371cx" path="res://resources/pickups/mcguffin_pickup.tres" id="2_71wir"]
+[ext_resource type="Texture2D" uid="uid://j7sku82peyoy" path="res://assets/images/pickups/water_vial.png" id="2_l4vpq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b6tx"]
+size = Vector2(20, 36)
+
+[node name="Pickup" type="RigidBody2D" groups=["pickup"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_32hgo")
+pickup = ExtResource("2_71wir")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_l4vpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7b6tx")
