@@ -1,5 +1,14 @@
 #!/bin/bash
 
+rm linux/*
+rm windows/*
+rm html/*
+
+cd ..
+godot --headless --export-debug "Linux/X11" ./build/linux/test
+cd build
+
+
 rm ./*.zip
 cd linux
 zip -r ../magna_fisher_linux.zip ./*
