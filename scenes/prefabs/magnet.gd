@@ -33,7 +33,6 @@ func _physics_process(delta):
 	angular_velocity += angular_accelleration * delta
 	angular_velocity *= pow(damping, delta)
 	
-	var old_velocity = angular_velocity
 	var direction = Input.get_axis("move_left", "move_right")
 	angular_velocity += direction * move_speed * delta
 	angular_momentum = mass * angular_velocity * length

@@ -10,14 +10,14 @@ func _on_body_entered(body):
 			if magnet_object.is_in_group("pickup"):
 				collected_pickups.append(magnet_object.pickup)
 				PlayerManager.money += magnet_object.pickup.value
-				magnet_object.queue_free()
+				#magnet_object.queue_free()
 	
 	PlayerManager.pickups.append_array(collected_pickups)
 	collected_pickups = []
 	
-	get_tree().change_scene_to_file("res://scenes/shop.tscn")
-	
-	
-	
+	call_deferred("change_to_shop")
 	
 	pass # Replace with function body.
+
+func change_to_shop():
+	get_tree().change_scene_to_file("res://scenes/shop.tscn")
