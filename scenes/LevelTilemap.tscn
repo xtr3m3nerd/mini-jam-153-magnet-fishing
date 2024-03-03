@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyc8b7jc1rbun"]
+
+[ext_resource type="TileSet" uid="uid://cohkf3css7dn3" path="res://assets/images/terrain/LevelTileset.tres" id="1_yd0ii"]
+
+[node name="LevelTilemap" type="TileMap"]
+tile_set = ExtResource("1_yd0ii")
+format = 2
