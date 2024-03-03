@@ -22,6 +22,7 @@ var angular_momentum := 0.0
 var used_length := 0.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var sound_player := AudioStreamPlayer.new()
 
 func _ready():
 	length = anchor.distance_to(global_position)
@@ -44,6 +45,8 @@ func _ready():
 					magnetic_zone.magnetic_strength = upgrade.value
 			Upgrade.Types.FLASHLIGHT:
 				pass
+	
+	add_child(sound_player)
 
 func _process(delta):
 	var change = Input.get_axis("move_up", "move_down")
@@ -108,6 +111,12 @@ func set_starting(new_anchor: Vector2, pos: Vector2):
 
 func _on_magnetic_zone_attract():
 	attract.emit()
+	var sound_effect = load("res://assets/sfx/attract.wav")
+	sound_player.stream = sound_effect
+	sound_player.play()
 
 func _on_magnetic_zone_detach():
 	detach.emit()
+	var sound_effect = load("res://assets/sfx/magnetoff.wav")
+	sound_player.stream = sound_effect
+	sound_player.play()

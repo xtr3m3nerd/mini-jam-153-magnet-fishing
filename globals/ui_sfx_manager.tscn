@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5copry0lu7d8"]
+[gd_scene load_steps=4 format=3 uid="uid://us2bea2rdvcq"]
 
 [ext_resource type="Script" path="res://globals/ui_sfx_manager.gd" id="1_20xpm"]
 [ext_resource type="AudioStream" uid="uid://bfvx3ggpennaw" path="res://assets/sfx/hover.mp3" id="2_gfckk"]
