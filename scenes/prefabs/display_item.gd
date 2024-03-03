@@ -1,8 +1,11 @@
 extends TextureButton
 
 @onready var shop = $"../../.."
+@onready var text = $RichTextLabel
 
 @export var displayed_upgrade : Upgrade
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +14,7 @@ func _ready():
 	
 func update_display():
 	var format_string = "[center]$%s[/center]"
-	$RichTextLabel.text = format_string % displayed_upgrade.price
+	text.text = format_string % displayed_upgrade.price
 	
 	texture_normal = displayed_upgrade.texture
 
