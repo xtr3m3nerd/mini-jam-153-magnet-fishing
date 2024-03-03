@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdmxdo16tb867"]
+[gd_scene load_steps=3 format=3 uid="uid://y8830oolbmgn"]
 
 [ext_resource type="Script" path="res://globals/pause_manager.gd" id="1_b58c0"]
 [ext_resource type="PackedScene" uid="uid://capb0aa54sbax" path="res://menu/prefabs/volume_controls.tscn" id="2_6ikux"]
