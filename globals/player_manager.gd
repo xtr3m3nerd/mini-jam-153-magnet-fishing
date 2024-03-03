@@ -7,7 +7,7 @@ extends Node
 var pickups : Array[Pickup] = []
 var upgrades : Array[Upgrade] = []
 var picked_up_ids : Array[int] = []
-var money : int = 1000
+var money : int = 50
 var weight : float = 0.0
 
 func _ready():
