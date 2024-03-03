@@ -1,7 +1,5 @@
-[gd_scene load_steps=32 format=3 uid="uid://h0e86e3416os"]
+[gd_scene load_steps=30 format=3 uid="uid://h0e86e3416os"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/player.gd" id="1_3gmtx"]
-[ext_resource type="Texture2D" uid="uid://catog4cl4ltxq" path="res://icon.svg" id="1_6et8l"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop.gd" id="1_omqba"]
 [ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/upgrades/length_upgrade_1.tres" id="2_r417v"]
 [ext_resource type="Script" path="res://scenes/prefabs/shop_ui.gd" id="2_t4sl0"]
@@ -117,14 +115,6 @@ offset_top = 22.0
 offset_right = 152.0
 offset_bottom = 62.0
 text = "$Temp"
-
-[node name="Player" type="Node2D" parent="."]
-script = ExtResource("1_3gmtx")
-upgrades = Array[Resource("res://scenes/upgrade.gd")]([ExtResource("9_m01e2"), ExtResource("10_wiw67"), ExtResource("11_uayjm"), ExtResource("12_wvnbc"), ExtResource("13_frk3n")])
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(1073, 563)
-texture = ExtResource("1_6et8l")
 
 [connection signal="purchased_item" from="." to="." method="remove_item"]
 [connection signal="purchased_item" from="." to="Control" method="_on_test_shop_purchased_item"]

@@ -6,7 +6,7 @@ func _ready():
 
 func update_money_display():
 	var format_string = "$%s"
-	$DisplayCurrentMoney.text = format_string % $"../Player".money
+	$DisplayCurrentMoney.text = format_string % PlayerManager.money
 
 
 func _on_test_shop_purchased_item(item):

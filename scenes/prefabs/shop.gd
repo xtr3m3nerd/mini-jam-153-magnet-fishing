@@ -2,7 +2,7 @@ extends Node2D
 
 signal purchased_item(item)
 
-@onready var player : Player = $Player
+@onready var player : Player = PlayerManager
 
 @export var upgrades : Array[Upgrade] = []
 @onready var upgrade_displays = $Control/HBoxContainer.get_children()
@@ -60,9 +60,9 @@ func remove_item(item : Upgrade):
 	pass
 
 func purchase_item(item : Upgrade):
-	if($Player.money >= item.price):
-		$Player.upgrades.append(item)
-		$Player.money -= item.price
+	if(PlayerManager.money >= item.price):
+		PlayerManager.upgrades.append(item)
+		PlayerManager.money -= item.price
 		
 		purchased_item.emit(item)
 		
