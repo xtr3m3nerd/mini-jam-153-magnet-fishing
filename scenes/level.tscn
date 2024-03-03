@@ -49,8 +49,9 @@ sources/0 = SubResource("TileSetAtlasSource_xcba5")
 script = ExtResource("1_t3njj")
 
 [node name="DepthFollowCamera" parent="." instance=ExtResource("1_718on")]
-position = Vector2(760, 226)
+position = Vector2(750, 789)
 zoom = Vector2(2, 2)
+max_height = 380.0
 
 [node name="Rope" parent="." instance=ExtResource("2_mwyy5")]
 position = Vector2(750, 136)
