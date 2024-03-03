@@ -28,8 +28,6 @@ func _process(_delta):
 		last_shape.append(all_points[-2])
 		last_shape.append(all_points[-3])
 		collision_shape_2d.shape.points = last_shape
-	else:
-		collision_shape_2d.shape.points = []
 
 func _physics_process(_delta):
 	if points.size() < 1:
