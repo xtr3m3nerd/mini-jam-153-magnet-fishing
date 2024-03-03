@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvbqchkj3i03q"]
+
+[ext_resource type="Script" path="res://scenes/prefabs/pickup.gd" id="1_kgset"]
+[ext_resource type="Resource" uid="uid://bq70bdt0rtdff" path="res://resources/pickups/nut_pickup.tres" id="2_b2vcf"]
+[ext_resource type="Texture2D" uid="uid://ckcp2fnv14cw3" path="res://assets/images/pickups/nut.png" id="3_2kmpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b6tx"]
+size = Vector2(12, 9)
+
+[node name="Pickup" type="RigidBody2D" groups=["pickup"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_kgset")
+pickup = ExtResource("2_b2vcf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_2kmpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7b6tx")

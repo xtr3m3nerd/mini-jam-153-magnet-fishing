@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://hdojn7qqhau1"]
+
+[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_5bxhr"]
+[ext_resource type="Texture2D" uid="uid://c2766rkwaivw6" path="res://assets/images/terrain/rock_deep_purple.png" id="2_du1k8"]
+
+[resource]
+script = ExtResource("1_5bxhr")
+price = 75
+name = "Flashlight 2"
+level = 2
+type = 4
+value = 2.0
+texture = ExtResource("2_du1k8")

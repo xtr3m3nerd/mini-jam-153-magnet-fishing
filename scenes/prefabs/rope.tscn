@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2h0nj12p6euo"]
+[gd_scene load_steps=5 format=3 uid="uid://c2h0nj12p6euo"]
 
 [ext_resource type="PackedScene" uid="uid://b86nc1tyynsk8" path="res://scenes/prefabs/magnet.tscn" id="1_64nh5"]
 [ext_resource type="Script" path="res://scenes/prefabs/rope.gd" id="1_7528q"]
 [ext_resource type="Texture2D" uid="uid://ciunk50twg4ys" path="res://assets/images/magnet/chain_full.png" id="2_vmrvn"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_2ynjc"]
 
 [node name="Rope" type="Node2D"]
 script = ExtResource("1_7528q")
@@ -15,3 +17,9 @@ texture_mode = 1
 
 [node name="Magnet" parent="." instance=ExtResource("1_64nh5")]
 position = Vector2(0, 100)
+
+[node name="UnstickChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnstickChecker"]
+shape = SubResource("ConvexPolygonShape2D_2ynjc")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckcp2fnv14cw3"
-path="res://.godot/imported/bolt.png-ce020005aa2be51e051840d3d9ab5763.ctex"
+uid="uid://dtjt7op1wq0md"
+path="res://.godot/imported/TrianglePyramidAlpha.png-8ed17b19d3b467f37d7ad47bdc2ace0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/pickups/bolt.png"
-dest_files=["res://.godot/imported/bolt.png-ce020005aa2be51e051840d3d9ab5763.ctex"]
+source_file="res://assets/images/TrianglePyramidAlpha.png"
+dest_files=["res://.godot/imported/TrianglePyramidAlpha.png-8ed17b19d3b467f37d7ad47bdc2ace0b.ctex"]
 
 [params]
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://djqowu5pgw3q8"]
+
+[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_vd63u"]
+[ext_resource type="Texture2D" uid="uid://cuu6txe8t03ca" path="res://assets/images/terrain/rock_red.png" id="2_kik16"]
+
+[resource]
+script = ExtResource("1_vd63u")
+price = 75
+name = "Strength 2"
+level = 2
+type = 3
+value = 800.0
+texture = ExtResource("2_kik16")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://dmlvh07uhlcik"]
+
+[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_0g8jk"]
+[ext_resource type="Texture2D" uid="uid://c1ojmy6qm13o6" path="res://assets/images/terrain/rock_purple.png" id="2_unrnh"]
+
+[resource]
+script = ExtResource("1_0g8jk")
+price = 100
+name = "Length 3"
+level = 3
+type = 0
+value = 16000.0
+texture = ExtResource("2_unrnh")
