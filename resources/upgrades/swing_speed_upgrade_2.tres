@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://ky77gcnm43g0"]
+
+[ext_resource type="Script" path="res://scenes/upgrade.gd" id="1_o1fcx"]
+[ext_resource type="Texture2D" uid="uid://b80exibf6wuaq" path="res://assets/images/rock_brown.png" id="2_f1t0r"]
+
+[resource]
+script = ExtResource("1_o1fcx")
+price = 75
+name = "Swing Speed 2"
+level = 2
+type = 1
+texture = ExtResource("2_f1t0r")
