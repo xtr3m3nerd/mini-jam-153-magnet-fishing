@@ -3,6 +3,9 @@ extends CharacterBody2D
  
 @onready var magnetic_zone : Area2D = $MagneticZone
 
+signal attract()
+signal detach()
+
 
 @export var anchor: Vector2 = Vector2.ZERO
 @export var length_speed: float = 50.0
@@ -100,3 +103,10 @@ func set_starting(new_anchor: Vector2, pos: Vector2):
 	length = anchor.distance_to(global_position)
 	angular_velocity = 0.0
 	angular_momentum = 0.0
+
+
+func _on_magnetic_zone_attract():
+	attract.emit()
+
+func _on_magnetic_zone_detach():
+	detach.emit()

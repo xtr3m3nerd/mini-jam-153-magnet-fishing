@@ -63,12 +63,15 @@ zoom = Vector2(2, 2)
 position = Vector2(769, 136)
 
 [node name="Line2D" type="Line2D" parent="."]
-scale = Vector2(1.21469, 0.991088)
-points = PackedVector2Array(285.669, 166.484, 386.106, 218.951, 388.576, 290.59, 265.088, 324.895, 198.404, 275.455, 225.571, 191.708, 262.618, 162.448)
+position = Vector2(55, 15)
+points = PackedVector2Array(365, 186, 427, 224, 442, 294, 265.088, 324.895, 198.404, 275.455, 225.571, 191.708, 262.618, 162.448)
 width = 2.0
 default_color = Color(1, 1, 1, 0.992157)
 
 [node name="Enemy" parent="Line2D" node_paths=PackedStringArray("explore_path") instance=ExtResource("5_oqbo7")]
 position = Vector2(306.25, 262.338)
-scale = Vector2(0.823254, 1.00899)
 explore_path = NodePath("..")
+wait_points = {
+2: 2.0,
+3: 5.0
+}

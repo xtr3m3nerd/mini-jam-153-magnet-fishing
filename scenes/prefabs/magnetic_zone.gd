@@ -1,5 +1,6 @@
 extends Area2D
 
+signal attract()
 signal detach()
 
 @export var magnetic_strength = 2000
@@ -25,7 +26,9 @@ func _input(event):
 		is_magnet_active = !is_magnet_active
 		general_pull.visible = is_magnet_active
 		directional_pull.visible = is_magnet_active
-		if not is_magnet_active:
+		if is_magnet_active:
+			attract.emit()
+		else:
 			detach.emit()
 
 func _physics_process(delta):

@@ -63,3 +63,6 @@ shape = SubResource("CircleShape2D_7k1av")
 [node name="DirectionalPull" type="CollisionPolygon2D" parent="MagneticZone"]
 position = Vector2(0, -26)
 polygon = PackedVector2Array(-150, 200, -15, 0, 15, 0, 150, 200)
+
+[connection signal="attract" from="MagneticZone" to="." method="_on_magnetic_zone_attract"]
+[connection signal="detach" from="MagneticZone" to="." method="_on_magnetic_zone_detach"]
