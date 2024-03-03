@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://h0e86e3416os"]
 
-[ext_resource type="Script" path="res://scenes/prefabs/shop.gd" id="1_x10um"]
+[ext_resource type="Script" path="res://scenes/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
 [ext_resource type="Resource" uid="uid://cahweifimwr1m" path="res://resources/upgrades/length_upgrade_1.tres" id="3_ymubp"]
 [ext_resource type="Resource" uid="uid://bcc8goivum5yw" path="res://resources/upgrades/length_upgrade_2.tres" id="4_34urf"]
@@ -21,7 +21,7 @@
 [ext_resource type="Resource" uid="uid://cf8g450kwm1s8" path="res://resources/upgrades/strength_upgrade_1.tres" id="19_j524v"]
 [ext_resource type="Resource" uid="uid://djqowu5pgw3q8" path="res://resources/upgrades/strength_upgrade_2.tres" id="20_lyikr"]
 [ext_resource type="Resource" uid="uid://cs73gnhyku82q" path="res://resources/upgrades/strength_upgrade_3.tres" id="21_pp2o6"]
-[ext_resource type="Script" path="res://scenes/prefabs/shop_ui.gd" id="22_kaouo"]
+[ext_resource type="Script" path="res://scenes/shop_ui.gd" id="22_kaouo"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
 [ext_resource type="Texture2D" uid="uid://yirqjuylji5j" path="res://assets/images/enemies/grey_shark.png" id="24_son3k"]
 [ext_resource type="PackedScene" uid="uid://bwwhipiacpd5i" path="res://scenes/prefabs/display_item.tscn" id="25_4bks0"]
