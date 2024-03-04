@@ -1,32 +1,26 @@
 extends Control
 
-@onready var textlabel : Label = $CenterContainer/Label
+@onready var textlabel : RichTextLabel = $CenterContainer/RichTextLabel
 
 func _ready():
 	Intro()
 
+func _process(_delta):
+	if(Input.is_action_just_pressed("ui_accept")):
+		SceneManager.change_to_level()
 
 func Intro():
 	
 	await get_tree().create_timer(2).timeout
-	ShowText("Dakota Thatcher - Technical Artist / Original Concept")
+	ShowText("[center]A [color=blue]fish[/color][/center]")
 	await get_tree().create_timer(5).timeout
-	ShowText("Kevin Albregard - Artist")
-	await get_tree().create_timer(5).timeout
-	ShowText("Bailee Grace - Artist")
-	await get_tree().create_timer(5).timeout
-	ShowText("Ben Branch - Audio")
-	await get_tree().create_timer(5).timeout
-	ShowText("Trevor Baughn - Technical Designer")
-	await get_tree().create_timer(5).timeout
-	ShowText("Xavier Vargas - Programmer")
+
 	
-	SceneManager.change_to_menu()
+	SceneManager.change_to_level()
 	pass
 
 func ShowText(text):
-	var alpha : float = 0
-	textlabel.add_theme_color_override("font_color", Color(1, 1, 1, alpha))
+	textlabel.modulate = Color(1,1,1,0)
 	textlabel.text = text
 	
 	$AnimationPlayer.play("fadein")
