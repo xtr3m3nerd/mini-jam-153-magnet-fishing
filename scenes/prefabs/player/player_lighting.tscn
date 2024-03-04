@@ -1,26 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://by8pdsvrvu8q4"]
+[gd_scene load_steps=2 format=3 uid="uid://by8pdsvrvu8q4"]
 
 [ext_resource type="Texture2D" uid="uid://dtjt7op1wq0md" path="res://assets/images/TrianglePyramidAlpha.png" id="1_a0ixd"]
-
-[sub_resource type="Gradient" id="Gradient_bvfb7"]
-offsets = PackedFloat32Array(0.388278, 0.648352)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b4kj8"]
-gradient = SubResource("Gradient_bvfb7")
-fill = 1
-fill_from = Vector2(0.5, 0.534188)
 
 [node name="PlayerLighting" type="Node2D"]
 
 [node name="Flashlight" type="PointLight2D" parent="."]
-scale = Vector2(0.2, 0.4)
+position = Vector2(-1, -4)
+scale = Vector2(0.0938931, 0.158779)
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("1_a0ixd")
 texture_scale = 1.31
-
-[node name="AmbientLight" type="PointLight2D" parent="."]
-scale = Vector2(4.496, 4)
-blend_mode = 2
-texture = SubResource("GradientTexture2D_b4kj8")

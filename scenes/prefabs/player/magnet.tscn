@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b86nc1tyynsk8"]
+[gd_scene load_steps=24 format=3 uid="uid://b86nc1tyynsk8"]
 
 [ext_resource type="Script" path="res://scenes/prefabs/player/magnet.gd" id="1_qvp27"]
 [ext_resource type="Texture2D" uid="uid://cfunkvigljhhv" path="res://assets/images/circlething.png" id="2_bjupj"]
@@ -79,6 +79,15 @@ point_count = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_7k1av"]
 radius = 112.894
 
+[sub_resource type="Gradient" id="Gradient_bvfb7"]
+offsets = PackedFloat32Array(0.025641, 0.355311, 0.630037)
+colors = PackedColorArray(1, 1, 1, 0.686275, 1, 1, 1, 0.249554, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_srj6r"]
+gradient = SubResource("Gradient_bvfb7")
+fill = 1
+fill_from = Vector2(0.5, 0.534188)
+
 [node name="Magnet" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 3
@@ -139,6 +148,12 @@ position = Vector2(0, -26)
 polygon = PackedVector2Array(-150, 200, -15, 0, 15, 0, 150, 200)
 
 [node name="PlayerLighting" parent="." instance=ExtResource("5_x7ar0")]
+
+[node name="AmbientLight" type="PointLight2D" parent="."]
+scale = Vector2(4.496, 4)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_srj6r")
+texture_scale = 0.75
 
 [connection signal="attract" from="MagneticZone" to="." method="_on_magnetic_zone_attract"]
 [connection signal="detach" from="MagneticZone" to="." method="_on_magnetic_zone_detach"]
