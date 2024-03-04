@@ -1,3 +1,4 @@
+@tool
 extends CharacterBody2D
 
 @onready var latch_check_ray = $LatchCheckRay
@@ -19,6 +20,16 @@ var path_idx = -1
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var state_label = $StateLabel
 @onready var vision = $Vision
+@onready var vision_shape = $Vision/CollisionShape2D
+
+@export var vision_distance: float = 300.0:
+	set(value):
+		vision_distance = value
+		update_vision_dist(value)
+		
+func update_vision_dist(value):
+	if vision_shape:
+		vision_shape.shape.radius = vision_distance
 
 @onready var out_of_sight_timer: Timer = $OutOfSightTimer
 @onready var idle_timer: Timer = $IdleTimer
@@ -39,6 +50,9 @@ var current_state = EnemyStates.IDLE
 var flipped = false
 
 func _ready():
+	update_vision_dist(vision_distance)
+	if Engine.is_editor_hint():
+		return
 	if explore_path:
 		for pos in explore_path.points:
 			path.append(pos + explore_path.global_position)
@@ -49,11 +63,15 @@ func _ready():
 	player.detach.connect(_on_magnetic_zone_detach)
 
 func _process(_delta):
+	if Engine.is_editor_hint():
+		return
 	target_locator.global_position = path[path_idx]
 	if Input.is_action_just_pressed("test_chase"):
 		change_state(EnemyStates.CHASE)
 
 func _physics_process(delta):
+	if Engine.is_editor_hint():
+		return
 	match current_state:
 		EnemyStates.IDLE:
 			idle(delta)

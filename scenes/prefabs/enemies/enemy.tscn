@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0w4f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tdgs"]
-radius = 300.0
+radius = 200.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
@@ -38,6 +38,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="StateLabel" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
