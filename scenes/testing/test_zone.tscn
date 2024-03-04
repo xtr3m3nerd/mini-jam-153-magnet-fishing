@@ -71,6 +71,7 @@ default_color = Color(1, 1, 1, 0.992157)
 [node name="Enemy" parent="Line2D" node_paths=PackedStringArray("explore_path") instance=ExtResource("5_oqbo7")]
 position = Vector2(306.25, 262.338)
 explore_path = NodePath("..")
+vision_distance = 200.0
 wait_points = {
 2: 2.0,
 3: 5.0
