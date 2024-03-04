@@ -1,20 +1,25 @@
 #!/bin/bash
 
-rm linux/*
-rm windows/*
-rm html/*
+# Clean up old
+rm ./linux/*
+rm ./windows/*
+rm ./html/*
+rm ./*.zip
+
+GAMENAME="magna_fisher"
 
 cd ..
-godot --headless --export-debug "Linux/X11" ./build/linux/test
+godot --headless --export-debug "Linux/X11" ./build/linux/$GAMENAME.x86-64
+godot --headless --export-debug "Windows Desktop" ./build/windows/$GAMENAME.exe
+godot --headless --export-debug "Web" ./build/html/index.html
 cd build
 
 
-rm ./*.zip
 cd linux
-zip -r ../magna_fisher_linux.zip ./*
+zip -r ../$GAMENAME_linux.zip ./*
 cd ../windows
-zip -r ../magna_fisher_windows.zip ./*
+zip -r ../$GAMENAME_windows.zip ./*
 cd ../html
-zip -r ../magna_fisher_html.zip ./*
+zip -r ../$GAMENAME_html.zip ./*
 cd ..
 
