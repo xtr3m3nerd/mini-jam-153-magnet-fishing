@@ -5,6 +5,7 @@ signal purchased_item(item)
 @export var upgrades : Array[Upgrade] = []
 @onready var upgrade_displays = $Control/HBoxContainer.get_children()
 var displayed_upgrades = []
+var sfx_player := AudioStreamPlayer.new()
 
 @export var shop_music: AudioStream 
 
@@ -42,7 +43,7 @@ func _ready():
 			upgrade_display.disabled = true
 			upgrade_display.texture_normal = null
 			upgrade_display.text.hide()
-
+	add_child(sfx_player)
 
 func remove_item(item : Upgrade):
 	#upgrades.erase(item)
@@ -64,11 +65,18 @@ func purchase_item(item : Upgrade):
 		purchased_item.emit(item)
 		
 		#TODO: Play purchase sound
+		var buy_effect = load("res://assets/sfx/kaching.wav")
+		sfx_player.stream = buy_effect
+		sfx_player.play()
 	else:
-		#TODO: Play can't purchase sound
-		pass
+		var cantbuy_effect = load("res://assets/sfx/Magneton.wav")
+		sfx_player.stream = cantbuy_effect
+		sfx_player.play()
 
 
 func _on_continue_button_pressed():
+	var leave_effect = load("res://assets/sfx/shopexit.wav")
+	sfx_player.stream = leave_effect
+	sfx_player.play()
 	MusicManager.play_next_song()
 	SceneManager.change_to_level()
