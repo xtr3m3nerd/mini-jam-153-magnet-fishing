@@ -9,7 +9,18 @@ signal detach()
 @onready var general_pull = $GeneralPull
 @onready var directional_pull = $DirectionalPull
 
-var is_magnet_active := false
+var is_magnet_active := false:
+	set(value):
+		if is_magnet_active != value:
+			is_magnet_active = value
+			if value:
+				attract.emit()
+			else:
+				detach.emit()
+			if general_pull:
+				general_pull.visible = value
+			if directional_pull:
+				directional_pull.visible = value
 
 var sticky_pickups = []
 var springs = []
@@ -21,15 +32,8 @@ func _ready():
 	general_pull.visible = is_magnet_active
 	directional_pull.visible = is_magnet_active
 
-func _input(event):
-	if event.is_action_pressed("magnet"):
-		is_magnet_active = !is_magnet_active
-		general_pull.visible = is_magnet_active
-		directional_pull.visible = is_magnet_active
-		if is_magnet_active:
-			attract.emit()
-		else:
-			detach.emit()
+func _process(_delta):
+	is_magnet_active = Input.is_action_pressed("magnet")
 
 func _physics_process(delta):
 	if is_magnet_active:

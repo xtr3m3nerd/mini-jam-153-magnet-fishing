@@ -6,8 +6,12 @@ signal purchased_item(item)
 @onready var upgrade_displays = $Control/HBoxContainer.get_children()
 var displayed_upgrades = []
 
+@export var shop_music: AudioStream 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	MusicManager.transition_music(shop_music)
 	for upgrade_display in upgrade_displays:
 		
 		#find which upgrade type and level based on player's current upgrades
@@ -66,4 +70,5 @@ func purchase_item(item : Upgrade):
 
 
 func _on_continue_button_pressed():
+	MusicManager.play_next_song()
 	SceneManager.change_to_level()

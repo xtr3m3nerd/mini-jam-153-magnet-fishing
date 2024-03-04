@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cs3af0croqqp5"]
+[gd_scene load_steps=44 format=3 uid="uid://cs3af0croqqp5"]
 
 [ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://diuarse8ktnv6" path="res://assets/images/shop/shop_background.png" id="22_d1uoy"]
 [ext_resource type="Script" path="res://scenes/shop/shop_ui.gd" id="22_kaouo"]
 [ext_resource type="Script" path="res://scenes/shop/fade_in.gd" id="22_mg8oq"]
+[ext_resource type="AudioStream" uid="uid://b6j02y8n4r044" path="res://assets/music/shop.ogg" id="22_wpfbu"]
 [ext_resource type="Texture2D" uid="uid://c1ocaer4nq11y" path="res://assets/images/shop/shopkeeper.png" id="23_lggdm"]
 [ext_resource type="Shader" path="res://assets/Shaders/Selection.gdshader" id="23_ne0bj"]
 [ext_resource type="Texture2D" uid="uid://dfwl7l0j7ykq5" path="res://assets/images/shop/display_case_empty.png" id="24_jw7vh"]
@@ -166,6 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x10um")
 upgrades = Array[Resource("res://resources/classes/upgrade.gd")]([ExtResource("2_7u1p1"), ExtResource("3_ymubp"), ExtResource("4_34urf"), ExtResource("5_t7inx"), ExtResource("6_eip7q"), ExtResource("7_lsc3r"), ExtResource("8_ir08t"), ExtResource("9_jtam1"), ExtResource("10_ywmii"), ExtResource("11_qs4l8"), ExtResource("12_viodb"), ExtResource("13_g4gbv"), ExtResource("14_7hhlu"), ExtResource("15_2uxyy"), ExtResource("16_07d6a"), ExtResource("17_ed7ho"), ExtResource("18_4f2kw"), ExtResource("19_j524v"), ExtResource("20_lyikr"), ExtResource("21_pp2o6")])
+shop_music = ExtResource("22_wpfbu")
 
 [node name="FadeInRect" type="ColorRect" parent="."]
 z_index = 1
