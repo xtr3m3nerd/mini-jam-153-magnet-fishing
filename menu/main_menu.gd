@@ -6,7 +6,7 @@ extends Control
 @export var buttons_with_sounds: Array[BaseButton] = []
 @export var sliders_with_sounds: Array[Slider] = []
 
-@onready var game_scene: PackedScene = SceneManager.level_scene
+@onready var game_scene: PackedScene = SceneManager.intro_scene
 @export var rules_scene: PackedScene = preload("res://menu/rules.tscn")
 
 func _ready():
