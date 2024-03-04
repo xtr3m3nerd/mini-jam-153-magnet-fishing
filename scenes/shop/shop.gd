@@ -75,5 +75,8 @@ func purchase_item(item : Upgrade):
 
 
 func _on_continue_button_pressed():
+	var leave_effect = load("res://assets/sfx/shopexit.wav")
+	sfx_player.stream = leave_effect
+	sfx_player.play()
 	MusicManager.play_next_song()
 	SceneManager.change_to_level()
