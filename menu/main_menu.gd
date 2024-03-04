@@ -28,7 +28,7 @@ func _unhandled_input(event):
 		exit_game()
 
 func _on_play_button_pressed():
-	var leave_effect = load("res://assets/sfx/happy.wav")
+	var leave_effect = load("res://assets/sfx/kaching.wav")
 	selectfx_player.stream = leave_effect
 	selectfx_player.play()
 	await selectfx_player.finished
