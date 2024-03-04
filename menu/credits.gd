@@ -14,16 +14,17 @@ func ShowCredits():
 	
 	await get_tree().create_timer(2).timeout
 	ShowCredit("Dakota Thatcher - Technical Artist / Original Concept")
-	await get_tree().create_timer(5).timeout
-	ShowCredit("Kevin Albregard - Artist")
-	await get_tree().create_timer(5).timeout
-	ShowCredit("Bailee Grace - Artist")
-	await get_tree().create_timer(5).timeout
-	ShowCredit("Ben Branch - Audio")
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(2).timeout
+	ShowCredit("Kevin Albregard - Artist: UX")
+	await get_tree().create_timer(2).timeout
+	ShowCredit("Bailee Grace - Artist: Characters/Enverionment")
+	await get_tree().create_timer(2).timeout
+	ShowCredit("Ben Branch - Audio: Composer/SFX/Implementation")
+	await get_tree().create_timer(2).timeout
 	ShowCredit("Trevor Baughn - Technical Designer")
-	await get_tree().create_timer(5).timeout
-	ShowCredit("Xavier Vargas - Programmer")
+	await get_tree().create_timer(2).timeout
+	ShowCredit("Xavier Vargas - Main Programmer")
+	await get_tree().create_timer(2).timeout
 	
 	SceneManager.change_to_menu()
 	pass
