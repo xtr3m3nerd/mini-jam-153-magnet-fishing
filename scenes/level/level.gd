@@ -10,4 +10,4 @@ func _ready():
 
 func free_picked_ups():
 	for pickup in PlayerManager.picked_up_ids:
-		pickups.get_child(pickup).queue_free()
+		pickups.get_child(pickup).hide()
