@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="1_718on"]
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_t3njj"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/player/rope.tscn" id="2_mwyy5"]
-[ext_resource type="Texture2D" uid="uid://cjupouwrmter5" path="res://assets/images/test_tiles.png" id="3_n2dlf"]
 [ext_resource type="Script" path="res://scenes/level/collection_zone.gd" id="4_k1ovo"]
 [ext_resource type="Script" path="res://scenes/level/collection_fade.gd" id="5_1l1gx"]
 [ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="6_4yamr"]
@@ -13,56 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://celiumetrk137" path="res://scenes/level/lava.tscn" id="10_wmqjk"]
 [ext_resource type="Shader" path="res://assets/Shaders/Lava.gdshader" id="11_6hftx"]
 [ext_resource type="Texture2D" uid="uid://q37h0hf70021" path="res://assets/images/LavaDistortion.png" id="12_yas8m"]
+[ext_resource type="PackedScene" uid="uid://dyc8b7jc1rbun" path="res://scenes/LevelTilemap.tscn" id="13_mqseo"]
 [ext_resource type="Texture2D" uid="uid://cm70l8mjelgb0" path="res://assets/images/BayleeLava.png" id="13_rx4dk"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xcba5"]
-texture = ExtResource("3_n2dlf")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, -16, -16, -16, 16)
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16)
-0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16)
-1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 16, -16, 16, 16)
-
-[sub_resource type="TileSet" id="TileSet_thudd"]
-tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_xcba5")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n20jt"]
+shader = ExtResource("11_6hftx")
+shader_parameter/lavaOpacity = 0.189
+shader_parameter/noiseScaleX = 0.009
+shader_parameter/noiseScaleY = 0.021
+shader_parameter/distortionScale = 100.0
+shader_parameter/distortionStrength = 80.0
+shader_parameter/surfaceHeight = 4500.0
+shader_parameter/lavaGradient = ExtResource("13_rx4dk")
+shader_parameter/lavaDistortion = ExtResource("12_yas8m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2qoq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tu2ey"]
 size = Vector2(2.74667, 55.5746)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n20jt"]
-shader = ExtResource("11_6hftx")
-shader_parameter/lavaOpacity = 0.34
-shader_parameter/noiseScaleX = 0.009
-shader_parameter/noiseScaleY = 0.021
-shader_parameter/distortionScale = 100.0
-shader_parameter/distortionStrength = 80.0
-shader_parameter/surfaceHeight = 6750.0
-shader_parameter/lavaGradient = ExtResource("13_rx4dk")
-shader_parameter/lavaDistortion = ExtResource("12_yas8m")
 
 [sub_resource type="Gradient" id="Gradient_da4mv"]
 
@@ -141,14 +108,9 @@ position = Vector2(724, 457)
 visible = false
 blend_mode = 1
 
-[node name="Lava" parent="." instance=ExtResource("10_wmqjk")]
-material = SubResource("ShaderMaterial_n20jt")
-position = Vector2(765, 8600)
-scale = Vector2(58.3203, 29.6641)
-
 [node name="SurfaceLight" type="PointLight2D" parent="."]
-position = Vector2(1266.5, 1872.5)
-scale = Vector2(111.047, 59.5156)
+position = Vector2(1266.5, 1103.5)
+scale = Vector2(111.047, 35.4844)
 texture = SubResource("GradientTexture2D_r8epl")
 
 [connection signal="body_entered" from="CollectionZone" to="CollectionZone" method="_on_body_entered"]
