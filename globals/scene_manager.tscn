@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b4lplury2x3vb" path="res://menu/credits.tscn" id="5_suswc"]
 [ext_resource type="PackedScene" uid="uid://dab0wxgb206ie" path="res://scenes/introduction.tscn" id="6_3rtq0"]
 
-
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_1xv0r")
 main_menu_scene = ExtResource("2_oiuqr")
