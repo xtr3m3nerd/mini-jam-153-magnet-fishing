@@ -77,6 +77,13 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../../MainMenuButton")
+focus_neighbor_top = NodePath("../../MainMenuButton")
+focus_neighbor_right = NodePath("../../MainMenuButton")
+focus_neighbor_bottom = NodePath("../../MainMenuButton")
+focus_next = NodePath("../../MainMenuButton")
+focus_previous = NodePath("../../MainMenuButton")
+focus_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/PauseScreen"]
 layout_mode = 1
@@ -88,6 +95,12 @@ offset_top = -56.0
 offset_right = 120.0
 offset_bottom = -25.0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../Background/VolumeControls")
+focus_neighbor_top = NodePath("../Background/VolumeControls")
+focus_neighbor_right = NodePath("../Background/VolumeControls")
+focus_neighbor_bottom = NodePath("../Background/VolumeControls")
+focus_next = NodePath("../Background/VolumeControls")
+focus_previous = NodePath("../Background/VolumeControls")
 text = "Main Menu"
 
 [connection signal="pressed" from="CanvasLayer/PauseScreen/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c32ywwqsseyjr"]
+[gd_scene load_steps=6 format=3 uid="uid://c32ywwqsseyjr"]
 
 [ext_resource type="Script" path="res://menu/main_menu.gd" id="1_cjnrv"]
 [ext_resource type="PackedScene" uid="uid://capb0aa54sbax" path="res://menu/prefabs/volume_controls.tscn" id="2_atbtv"]
 [ext_resource type="Texture2D" uid="uid://dl2mb1sk8mrg6" path="res://assets/images/main_character.png" id="3_3260i"]
+[ext_resource type="Texture2D" uid="uid://ciunk50twg4ys" path="res://assets/images/magnet/chain_full.png" id="3_yo8gf"]
 [ext_resource type="Texture2D" uid="uid://mw506h8ila02" path="res://assets/images/magnet/red_blue_magnet.png" id="4_u5q53"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("buttons_with_sounds") groups=["menu"]]
@@ -35,21 +36,20 @@ offset_right = 481.0
 offset_bottom = 192.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
-text = "Magna Fisher"
-horizontal_alignment = 1
+text = "Untitled Magnet Game"
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -2.0
-offset_right = 52.0
-offset_bottom = 134.0
-grow_horizontal = 2
+offset_left = -272.0
+offset_top = -68.0
+offset_right = -88.0
+offset_bottom = 144.0
+grow_horizontal = 0
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="Buttons"]
@@ -86,6 +86,21 @@ offset_right = -24.0
 offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
+focus_neighbor_left = NodePath("../Buttons/ExitButton")
+focus_neighbor_top = NodePath("../Buttons/ExitButton")
+focus_neighbor_right = NodePath("../Buttons/PlayButton")
+focus_neighbor_bottom = NodePath("../Buttons/PlayButton")
+focus_next = NodePath("../Buttons/PlayButton")
+focus_previous = NodePath("../Buttons/ExitButton")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+position = Vector2(286, 480)
+scale = Vector2(0.414176, 0.414176)
+points = PackedVector2Array(371.823, 205.227, 1255.5, -164.181)
+width = 100.0
+texture = ExtResource("3_yo8gf")
+texture_mode = 1
 
 [node name="MainCharacter" type="Sprite2D" parent="."]
 position = Vector2(286, 480)
@@ -93,8 +108,8 @@ scale = Vector2(0.414176, 0.414176)
 texture = ExtResource("3_3260i")
 
 [node name="RedBlueMagnet" type="Sprite2D" parent="."]
-position = Vector2(973, 395)
-rotation = -0.876731
+position = Vector2(828, 432)
+rotation = -3.94147
 scale = Vector2(0.48134, 0.48134)
 texture = ExtResource("4_u5q53")
 
