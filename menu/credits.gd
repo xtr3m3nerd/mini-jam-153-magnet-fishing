@@ -17,7 +17,7 @@ func ShowCredits():
 	await get_tree().create_timer(2).timeout
 	ShowCredit("Kevin Albregard - Artist: UX")
 	await get_tree().create_timer(2).timeout
-	ShowCredit("Bailee Grace - Artist: Characters/Enverionment")
+	ShowCredit("Bailee Grace - Artist: Characters/Environment")
 	await get_tree().create_timer(2).timeout
 	ShowCredit("Ben Branch - Audio: Composer/SFX/Implementation")
 	await get_tree().create_timer(2).timeout
