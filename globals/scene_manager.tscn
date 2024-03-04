@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://globals/scene_manager.gd" id="1_1xv0r"]
 [ext_resource type="PackedScene" uid="uid://c32ywwqsseyjr" path="res://menu/main_menu.tscn" id="2_oiuqr"]
-[ext_resource type="PackedScene" uid="uid://dhrogtdvywvb" path="res://scenes/level/level.tscn" id="3_rxcmw"]
+[ext_resource type="PackedScene" uid="uid://ueiba1keju8k" path="res://scenes/level/level.tscn" id="3_rxcmw"]
 [ext_resource type="PackedScene" uid="uid://cs3af0croqqp5" path="res://scenes/shop/shop.tscn" id="4_bcvkq"]
-[ext_resource type="PackedScene" uid="uid://b4lplury2x3vb" path="res://menu/credits.tscn" id="5_suswc"]
+[ext_resource type="PackedScene" path="res://menu/credits.tscn" id="5_suswc"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_1xv0r")
