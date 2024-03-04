@@ -1,6 +1,10 @@
 extends Area2D
 
 var collected_pickups : Array[Pickup] = []
+var transition_sound_player := AudioStreamPlayer.new()
+
+func _ready():
+	add_child(transition_sound_player)
 
 func _on_body_entered(body):
 	
@@ -19,6 +23,11 @@ func _on_body_entered(body):
 	
 	
 	collected_pickups = []
+	
+	var leave_effect = load("res://assets/sfx/shopexit.wav")
+	transition_sound_player.stream = leave_effect
+	transition_sound_player.play()
+	await transition_sound_player.finished
 	
 	call_deferred("change_to_shop")
 	
