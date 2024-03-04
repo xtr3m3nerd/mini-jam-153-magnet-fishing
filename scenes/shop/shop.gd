@@ -78,5 +78,6 @@ func _on_continue_button_pressed():
 	var leave_effect = load("res://assets/sfx/shopexit.wav")
 	sfx_player.stream = leave_effect
 	sfx_player.play()
+	await sfx_player.finished
 	MusicManager.play_next_song()
 	SceneManager.change_to_level()
