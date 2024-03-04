@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ueiba1keju8k"]
+[gd_scene load_steps=20 format=3 uid="uid://ueiba1keju8k"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_k4utc"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/player/rope.tscn" id="2_5qpb4"]
@@ -43,49 +43,54 @@ script = ExtResource("1_k4utc")
 
 [node name="Enemies" type="Node2D" parent="."]
 
+[node name="Enemy" parent="Enemies" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
+position = Vector2(376, 3624)
+explore_path = NodePath("../Line2D")
+
 [node name="Line2D" type="Line2D" parent="Enemies"]
+visible = false
 position = Vector2(-194, 1711)
 points = PackedVector2Array(565, 1904, 634, 2029, 877, 2049, 982, 1869, 935, 1781, 819, 1735, 671, 1735, 568, 1797)
 
-[node name="Enemy" parent="Enemies/Line2D" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
-position = Vector2(570, 1913)
-explore_path = NodePath("..")
-
-[node name="Line2D2" type="Line2D" parent="Enemies"]
-position = Vector2(499, 1758)
-points = PackedVector2Array(273, 2104, 505, 2030, 694, 1976, 880, 1938, 1074, 1910, 638, 1988)
-
-[node name="Enemy" parent="Enemies/Line2D2" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
-position = Vector2(274, 2105)
-explore_path = NodePath("..")
+[node name="Enemy2" parent="Enemies" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
+position = Vector2(773, 3863)
+explore_path = NodePath("../Line2D2")
 wait_points = {
 0: 2.0
 }
 
+[node name="Line2D2" type="Line2D" parent="Enemies"]
+visible = false
+position = Vector2(499, 1758)
+points = PackedVector2Array(273, 2104, 505, 2030, 694, 1976, 880, 1938, 1074, 1910, 638, 1988)
+
+[node name="Enemy3" parent="Enemies" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
+position = Vector2(572, 1756)
+explore_path = NodePath("../Line2D3")
+vision_distance = 50.0
+
 [node name="Line2D3" type="Line2D" parent="Enemies"]
+visible = false
 position = Vector2(29, -107)
 points = PackedVector2Array(544, 1860, 486, 2020, 486, 2163, 625, 2207, 673, 2254, 699, 2453, 746, 2699, 852, 2859, 885, 2850, 943, 2741, 1061, 2556, 1023, 2091, 908, 1836, 804, 1640, 736, 1588, 652, 1577, 604, 1626, 568, 1797)
 
-[node name="Enemy" parent="Enemies/Line2D3" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
-position = Vector2(543, 1863)
-explore_path = NodePath("..")
-vision_distance = 50.0
+[node name="Enemy4" parent="Enemies" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
+position = Vector2(267, 4597)
+explore_path = NodePath("../Line2D4")
 
 [node name="Line2D4" type="Line2D" parent="Enemies"]
+visible = false
 position = Vector2(-36, 2930)
 points = PackedVector2Array(305, 1665, 381, 1809, 604, 2036, 871, 2070, 1004, 1936, 981, 1760, 812, 1561, 578, 1447, 384, 1455)
 
-[node name="Enemy" parent="Enemies/Line2D4" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
-position = Vector2(303, 1667)
-explore_path = NodePath("..")
+[node name="Enemy5" parent="Enemies" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
+position = Vector2(910, 4877)
+explore_path = NodePath("../Line2D5")
 
 [node name="Line2D5" type="Line2D" parent="Enemies"]
+visible = false
 position = Vector2(436, 2725)
 points = PackedVector2Array(478, 2148, 602, 2184, 790, 2019, 1007, 1942, 1108, 1839, 975, 1784, 794, 1768, 535, 1780, 446, 1879)
-
-[node name="Enemy" parent="Enemies/Line2D5" node_paths=PackedStringArray("explore_path") instance=ExtResource("2_q4uu4")]
-position = Vector2(474, 2152)
-explore_path = NodePath("..")
 
 [node name="Rope" parent="." instance=ExtResource("2_5qpb4")]
 position = Vector2(750, 136)
