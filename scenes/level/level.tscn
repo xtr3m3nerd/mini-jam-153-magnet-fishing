@@ -80,20 +80,165 @@ shape = SubResource("RectangleShape2D_tu2ey")
 [node name="Pickups" type="Node" parent="."]
 
 [node name="Sword" parent="Pickups" instance=ExtResource("10_46tw0")]
-position = Vector2(933, 468)
+position = Vector2(107, 3775)
 rotation = -1.80476
 
 [node name="McGuffin" parent="Pickups" instance=ExtResource("11_jrhjq")]
-position = Vector2(848, 457)
+position = Vector2(1154, 6120)
 
 [node name="Bolt" parent="Pickups" instance=ExtResource("12_56ytc")]
-position = Vector2(775, 465)
+position = Vector2(888, 472)
 
 [node name="Shield" parent="Pickups" instance=ExtResource("13_ndf2v")]
-position = Vector2(724, 457)
+position = Vector2(366, 1435)
+
+[node name="Bolt2" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(908, 474)
+
+[node name="Bolt3" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(701, 760)
+
+[node name="Shield2" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(961, 839)
+
+[node name="Bolt4" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(690, 1064)
+
+[node name="Bolt5" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1023, 1555)
+
+[node name="Shield3" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(743, 1699)
+
+[node name="Bolt6" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(328, 1900)
+
+[node name="Bolt7" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(303, 1923)
+
+[node name="Bolt8" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(306, 1895)
+
+[node name="Bolt9" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1271, 1813)
+
+[node name="Bolt10" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1255, 1818)
+
+[node name="Shield4" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(1219, 1830)
+
+[node name="Bolt11" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(668, 1943)
+
+[node name="Bolt12" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(417, 2124)
+
+[node name="Bolt13" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1300, 2997)
+
+[node name="Shield5" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(1031, 2836)
+
+[node name="Shield6" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(1330, 2982)
+
+[node name="Bolt14" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1260, 3026)
+
+[node name="Bolt15" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(939, 3312)
+
+[node name="Bolt16" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(916, 3344)
+
+[node name="Bolt17" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(691, 3340)
+
+[node name="Bolt18" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1365, 3505)
+
+[node name="Bolt19" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1351, 3515)
+
+[node name="Shield7" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(881, 4068)
+
+[node name="Bolt20" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(847, 4046)
+
+[node name="Bolt21" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(900, 4032)
+
+[node name="Sword2" parent="Pickups" instance=ExtResource("10_46tw0")]
+position = Vector2(838, 6490)
+rotation = -1.80476
+
+[node name="Sword3" parent="Pickups" instance=ExtResource("10_46tw0")]
+position = Vector2(551, 6473)
+rotation = -1.80476
+
+[node name="Sword4" parent="Pickups" instance=ExtResource("10_46tw0")]
+position = Vector2(198, 6255)
+rotation = -1.80476
+
+[node name="Shield8" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(706, 6467)
+
+[node name="Shield9" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(468, 6401)
+
+[node name="Shield10" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(918, 6468)
+
+[node name="Sword5" parent="Pickups" instance=ExtResource("10_46tw0")]
+position = Vector2(717, 5360)
+rotation = -1.80476
+
+[node name="Sword6" parent="Pickups" instance=ExtResource("10_46tw0")]
+position = Vector2(743, 4782)
+rotation = -1.80476
+
+[node name="Shield11" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(237, 5030)
+
+[node name="Shield12" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(471, 4451)
+
+[node name="Bolt22" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1322, 4861)
+
+[node name="Bolt23" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1288, 4875)
+
+[node name="Bolt24" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1250, 4893)
+
+[node name="Bolt25" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1340, 4815)
+
+[node name="Bolt26" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1306, 4829)
+
+[node name="Bolt27" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1268, 4847)
+
+[node name="Bolt28" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1352, 4781)
+
+[node name="Bolt29" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1318, 4795)
+
+[node name="Bolt30" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1280, 4813)
+
+[node name="Shield13" parent="Pickups" instance=ExtResource("13_ndf2v")]
+position = Vector2(1630, 4645)
+
+[node name="Bolt31" parent="Pickups" instance=ExtResource("12_56ytc")]
+position = Vector2(1348, 3822)
 
 [node name="LevelShadows" type="DirectionalLight2D" parent="."]
-visible = false
 blend_mode = 1
 
 [node name="SurfaceLight" type="PointLight2D" parent="."]
