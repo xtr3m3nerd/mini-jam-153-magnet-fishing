@@ -24,7 +24,7 @@ func Intro():
 	await get_tree().create_timer(5).timeout
 	ShowText("[center]But it's [color=orange]dangerous[/color] for fish-kind to venture into the depths[p align=center]where the [wave amp=50.0 freq=5.0 connected=1][color=cyan]elusive nectar[/color][/wave] can be found...[/p][/center]", 5)
 	await get_tree().create_timer(7).timeout
-	ShowText("[center]So [color=yellow]Goldy[/color] ventured forth with a [color=red]fire-resistant[/color] [color=blue]magnet[/color]...[/center]", 3)
+	ShowText("[center]So [color=yellow]Goldy[/color] ventured forth with a [color=red]heat-resistant[/color] [color=blue]magnet[/color]...[/center]", 3)
 	await get_tree().create_timer(5).timeout
 	
 	SceneManager.change_to_level()
