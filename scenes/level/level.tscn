@@ -6,7 +6,7 @@
 [ext_resource type="Shader" path="res://assets/Shaders/Lava.gdshader" id="4_afejq"]
 [ext_resource type="Texture2D" uid="uid://q37h0hf70021" path="res://assets/images/LavaDistortion.png" id="5_an5b2"]
 [ext_resource type="Texture2D" uid="uid://cm70l8mjelgb0" path="res://assets/images/BayleeLava.png" id="6_p1m0u"]
-[ext_resource type="PackedScene" path="res://scenes/LevelTilemap.tscn" id="7_e6t4g"]
+[ext_resource type="PackedScene" uid="uid://dyc8b7jc1rbun" path="res://scenes/LevelTilemap.tscn" id="7_e6t4g"]
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="8_nmqbj"]
 [ext_resource type="Script" path="res://scenes/level/collection_zone.gd" id="9_yi1eq"]
 [ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="10_46tw0"]
