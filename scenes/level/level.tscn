@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ueiba1keju8k"]
+[gd_scene load_steps=19 format=3 uid="uid://ueiba1keju8k"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_k4utc"]
 [ext_resource type="PackedScene" uid="uid://c2h0nj12p6euo" path="res://scenes/prefabs/player/rope.tscn" id="2_5qpb4"]
@@ -6,9 +6,8 @@
 [ext_resource type="Shader" path="res://assets/Shaders/Lava.gdshader" id="4_afejq"]
 [ext_resource type="Texture2D" uid="uid://q37h0hf70021" path="res://assets/images/LavaDistortion.png" id="5_an5b2"]
 [ext_resource type="Texture2D" uid="uid://cm70l8mjelgb0" path="res://assets/images/BayleeLava.png" id="6_p1m0u"]
-[ext_resource type="PackedScene" uid="uid://dyc8b7jc1rbun" path="res://scenes/LevelTilemap.tscn" id="7_e6t4g"]
+[ext_resource type="PackedScene" path="res://scenes/LevelTilemap.tscn" id="7_e6t4g"]
 [ext_resource type="PackedScene" uid="uid://bu86l3nulctim" path="res://scenes/prefabs/cameras/depth_follow_camera.tscn" id="8_nmqbj"]
-[ext_resource type="Script" path="res://scenes/level/collection_fade.gd" id="9_4ijpq"]
 [ext_resource type="Script" path="res://scenes/level/collection_zone.gd" id="9_yi1eq"]
 [ext_resource type="PackedScene" uid="uid://b2cfaeoj2mn18" path="res://scenes/prefabs/pickups/sword_pickup.tscn" id="10_46tw0"]
 [ext_resource type="PackedScene" uid="uid://cfca407ntysji" path="res://scenes/prefabs/pickups/mcguffin_pickup.tscn" id="11_jrhjq"]
@@ -56,20 +55,6 @@ layer_0/tile_data = PackedInt32Array(327705, 327681, 2, 262169, 327681, 2, 19663
 position = Vector2(758, 2235)
 zoom = Vector2(2, 2)
 max_height = 380.0
-
-[node name="CollectionFade" type="CanvasLayer" parent="DepthFollowCamera"]
-script = ExtResource("9_4ijpq")
-
-[node name="ColorRect" type="ColorRect" parent="DepthFollowCamera/CollectionFade"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0)
-
-[node name="CollectionFadeStartPoint" type="Node2D" parent="."]
-position = Vector2(680, 240)
 
 [node name="CollectionZone" type="Area2D" parent="."]
 position = Vector2(750, 159)

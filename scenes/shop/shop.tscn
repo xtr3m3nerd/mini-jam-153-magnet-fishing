@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cs3af0croqqp5"]
+[gd_scene load_steps=47 format=3 uid="uid://cs3af0croqqp5"]
 
 [ext_resource type="Script" path="res://scenes/shop/shop.gd" id="1_x10um"]
 [ext_resource type="Resource" uid="uid://bewaoaxaex5i8" path="res://resources/upgrades/length_upgrade_0.tres" id="2_7u1p1"]
@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://dl2mb1sk8mrg6" path="res://assets/images/main_character.png" id="26_pwaxy"]
 [ext_resource type="Texture2D" uid="uid://cunlrk6pnbwns" path="res://assets/images/shop/shop_back_to_cave_sign.png" id="27_xd0oi"]
 [ext_resource type="Texture2D" uid="uid://xi65fvv20mgj" path="res://assets/images/shop/display_case_glass.png" id="29_jtlug"]
+[ext_resource type="AudioStream" uid="uid://kmqqelcqsw1c" path="res://assets/sfx/kaching.wav" id="33_cgqgr"]
+[ext_resource type="AudioStream" uid="uid://cci24t2kni6y" path="res://assets/sfx/Magneton.wav" id="34_vg4k6"]
+[ext_resource type="AudioStream" uid="uid://bejefnbky7hqw" path="res://assets/sfx/shopexit.wav" id="35_4i41q"]
 
 [sub_resource type="Animation" id="Animation_hlo0n"]
 resource_name = "fade_in"
@@ -346,6 +349,18 @@ libraries = {
 "": SubResource("AnimationLibrary_r53p0")
 }
 autoplay = "idle"
+
+[node name="BuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_cgqgr")
+bus = &"Sfx"
+
+[node name="CantBuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_vg4k6")
+bus = &"Sfx"
+
+[node name="ExitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_4i41q")
+bus = &"Sfx"
 
 [connection signal="purchased_item" from="." to="." method="remove_item"]
 [connection signal="purchased_item" from="." to="Control" method="_on_shop_purchased_item"]

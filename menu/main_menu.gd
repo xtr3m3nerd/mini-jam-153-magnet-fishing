@@ -9,8 +9,6 @@ extends Control
 @onready var game_scene: PackedScene = SceneManager.intro_scene
 @export var rules_scene: PackedScene = preload("res://menu/rules.tscn")
 
-var selectfx_player := AudioStreamPlayer.new()
-
 func _ready():
 	play_button.grab_focus()
 	match OS.get_name():
@@ -21,17 +19,12 @@ func _ready():
 	UiSfxManager.add_sliders(sliders_with_sounds)
 	PlayerManager.reset()
 	PauseManager.paused = false
-	add_child(selectfx_player)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("back"):
 		exit_game()
 
 func _on_play_button_pressed():
-	var leave_effect = load("res://assets/sfx/kaching.wav")
-	selectfx_player.stream = leave_effect
-	selectfx_player.play()
-	await selectfx_player.finished
 	get_tree().change_scene_to_packed(game_scene)
 
 

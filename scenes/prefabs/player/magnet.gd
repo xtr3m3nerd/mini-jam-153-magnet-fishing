@@ -25,8 +25,9 @@ var used_length := 0.0
 var lighting_scale := 0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var sound_player := AudioStreamPlayer.new()
-var loop_player := AudioStreamPlayer.new()
+@onready var suck_sound = $SuckSound
+@onready var unsuck_sound = $UnsuckSound
+@onready var sucking_sound = $SuckingSound
 
 func _ready():
 	player_lighting.hide()
@@ -56,8 +57,6 @@ func _ready():
 						player_lighting.show()
 	
 	player_lighting.scale *= lighting_scale
-	add_child(sound_player)
-	add_child(loop_player)
 
 func _process(delta):
 	var change = Input.get_axis("move_up", "move_down")
@@ -122,18 +121,12 @@ func set_starting(new_anchor: Vector2, pos: Vector2):
 
 func _on_magnetic_zone_attract():
 	attract.emit()
-	var sound_effect = load("res://assets/sfx/attract.wav")
-	sound_player.stream = sound_effect
-	sound_player.play()
+	suck_sound.play()
 	magnet_vfx.emitting = true
-	var loop_effect = load("res://assets/sfx/loopy.wav")
-	loop_player.stream = loop_effect
-	loop_player.play()
+	sucking_sound.play()
 
 func _on_magnetic_zone_detach():
 	detach.emit()
-	loop_player.stop()
-	var sound_effect = load("res://assets/sfx/magnetoff.wav")
-	sound_player.stream = sound_effect
-	sound_player.play()
+	sucking_sound.stop()
+	unsuck_sound.play()
 	magnet_vfx.emitting = false

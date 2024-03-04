@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://globals/ui_sfx_manager.gd" id="1_20xpm"]
 [ext_resource type="AudioStream" uid="uid://bfvx3ggpennaw" path="res://assets/sfx/hover.mp3" id="2_gfckk"]
-[ext_resource type="AudioStream" uid="uid://bpvnm84ytxjc0" path="res://assets/sfx/press_button.mp3" id="3_ggyvg"]
+[ext_resource type="AudioStream" uid="uid://kmqqelcqsw1c" path="res://assets/sfx/kaching.wav" id="3_b1k3c"]
 
 [node name="UiSfxManager" type="Node"]
 script = ExtResource("1_20xpm")
 button_hover_sound = ExtResource("2_gfckk")
-button_press_sound = ExtResource("3_ggyvg")
+button_press_sound = ExtResource("3_b1k3c")
 
 [node name="ButtonNoises" type="AudioStreamPlayer" parent="."]
 bus = &"Sfx"
