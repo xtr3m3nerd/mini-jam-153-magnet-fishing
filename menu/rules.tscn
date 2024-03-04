@@ -44,7 +44,18 @@ alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 bbcode_enabled = true
-text = "[font=res://assets/fonts/ComicNeue-Bold.ttf][b][font_size=30]TODO - Explain how to play[/font_size][/b]
+text = "[font=res://assets/fonts/ComicNeue-Bold.ttf][b][font_size=30]Keyboard:
+W - Move magnet Up.
+S - Move Magnet Down.
+A - Swing Magnet Left.
+D - Swing magnet Right.
+Hold Spacebar: Use Magnet
+
+Controller:
+Left stick to move magnet and navigate menus.
+Either Trigger to toggle magnet.
+Start to pause.
+Right face button to confirm.[/font_size][/b]
 "
 fit_content = true
 
